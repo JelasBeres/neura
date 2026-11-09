@@ -50,12 +50,12 @@ pre{background:#0d0f14;border:1px solid var(--line);border-radius:10px;padding:1
 <p>Each experiment's hypothesis, organisms, budget and gates are written to the ledger before it runs, so the target cannot move after the result is known. The last three months of data are sealed and stay unopened until an experiment passes all four gates on the rest.</p>
 <table id="ledger"><tr><th>Experiment</th><th>Registered (UTC)</th><th>Hypothesis</th></tr></table>
 <p class="mono" style="margin-top:12px">Ledger: <a href="raw/lab/ledger.json">raw/lab/ledger.json</a> · SHA-256 <span id="lhash">…</span></p>
-<p id="anchor" class="dim">Not yet anchored on-chain: the ledger's hash will be written into a Robinhood Chain transaction so later registrations can be checked against a public timestamp.</p>
+<p id="anchor" class="dim">Not yet timestamped: the ledger's hash will be anchored in a public blockchain so registrations can be checked against an independent clock.</p>
 
 <h2>What this does not prove</h2>
 <ul class="limits">
  <li>These are backtests on past data with paper money, not live trading results. The <a href="live.html">live forward test</a> also uses paper money.</li>
- <li>Registration times before the on-chain anchor are recorded by us; only registrations after it can be checked against a public timestamp.</li>
+ <li>The Bitcoin timestamp proves the ledger existed by 9 November 2026. It cannot prove that EXP-001 to EXP-005, registered earlier that week, were written before their runs; LIVE-001's results did not exist yet when it was stamped.</li>
  <li>EXP-002 has about five weeks of on-chain data (swaps in these pools began on 8 July 2026; SPY, QQQ, META and COIN had none before the holdout). Its numbers are too short to mean anything.</li>
  <li>The worm's brain is replayed from a precomputed table (one entry per smell, memory and seed) rather than simulated at every bar; the table itself is the output of the full 302-neuron simulation.</li>
  <li>No experiment has passed all four gates yet, so the holdout is still sealed and nothing here claims an edge.</li>
@@ -70,7 +70,9 @@ document.getElementById("files").insertAdjacentHTML("beforeend", M.files.map((f,
 document.getElementById("ledger").insertAdjacentHTML("beforeend", Lg.registered.map((e) => `<tr><td>${e.id}</td><td>${e.at.replace("T", " ").slice(0, 19)}</td><td style="word-break:normal">${e.hypothesis}</td></tr>`).join(""));
 const sha = async (buf) => [...new Uint8Array(await crypto.subtle.digest("SHA-256", buf))].map((b) => b.toString(16).padStart(2, "0")).join("");
 document.getElementById("lhash").textContent = await sha(await (await fetch("raw/lab/ledger.json")).arrayBuffer());
-if (site.anchor) document.getElementById("anchor").innerHTML = `Anchored on Robinhood Chain: transaction <a href="${ex}/tx/${site.anchor.tx}" target="_blank" rel="noopener">${site.anchor.tx.slice(0, 18)}…</a> carries ledger hash <span class="mono">${site.anchor.hash}</span> (${site.anchor.at}).`;
+const an = site.anchor;
+if (an?.type === "opentimestamps") document.getElementById("anchor").innerHTML = `<b style="color:var(--ink)">Timestamped in Bitcoin with OpenTimestamps</b> on ${an.at}: the ledger as it stood then (<a href="${an.file}">ledger-anchored.json</a>, SHA-256 <span class="mono">${an.hash}</span>) and its proof (<a href="${an.proof}">.ots</a>). ${an.confirmed ? "Confirmed in a Bitcoin block." : "Waiting for the Bitcoin block that confirms it (a few hours); the proof file is updated then."} To check: drop both files on <a href="https://opentimestamps.org" target="_blank" rel="noopener">opentimestamps.org</a>, or run <code>ots verify ledger-anchored.json.ots</code>. Every registration in that file, LIVE-001 included, existed by that time.`;
+else if (an?.tx) document.getElementById("anchor").innerHTML = `Anchored on Robinhood Chain: transaction <a href="${ex}/tx/${an.tx}" target="_blank" rel="noopener">${an.tx.slice(0, 18)}…</a> carries ledger hash <span class="mono">${an.hash}</span> (${an.at}).`;
 if (site.repo) document.getElementById("repo").innerHTML = `With Node.js you can rerun the whole league from the <a href="${site.repo}" target="_blank" rel="noopener">source code</a>: <code>node server/league/run.mjs EXP-004</code> writes the same results this site shows.`;
 document.getElementById("hash").onclick = async () => {
   let ok = 0; const msg = document.getElementById("hmsg");

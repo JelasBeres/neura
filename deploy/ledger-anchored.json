@@ -1,0 +1,162 @@
+{
+ "registered": [
+  {
+   "id": "EXP-001",
+   "at": "2026-11-08T20:42:55.970Z",
+   "hypothesis": "Assets that have been rising feed the plate; tubes toward them thicken, so the blob leans into trends and rests in cash when nothing rises. It should beat equal-weight hold after costs.",
+   "gates": [
+    "beats hold on return",
+    "beats hold on Sharpe",
+    "drawdown no worse than hold",
+    "wins at least 3 of 4 folds"
+   ]
+  },
+  {
+   "id": "LEAGUE/EXP-001",
+   "at": "2026-11-09T08:09:17.960Z",
+   "hypothesis": "An organism that grows toward rising assets beats equal-weight hold after costs.",
+   "organisms": [
+    "physarum",
+    "worm",
+    "fry",
+    "ant",
+    "bee",
+    "ecoli"
+   ],
+   "budget": "48 settings each, 5 seeds on test",
+   "notes": [
+    "Ant colony trades its expected allocation (pheromone share) instead of sampled head counts; found in a dry smoke run on dev folds before registration."
+   ],
+   "gates": [
+    "beats hold on return",
+    "beats hold on Sharpe",
+    "drawdown no worse than hold",
+    "wins at least 3 of 4 folds"
+   ]
+  },
+  {
+   "id": "LEAGUE/EXP-004",
+   "at": "2026-11-09T08:09:17.963Z",
+   "hypothesis": "Hourly mega-cap moves reverse (EXP-001 failed for that reason), so feeding on recent losers beats hold after costs.",
+   "organisms": [
+    "physarum",
+    "worm",
+    "fry",
+    "ant",
+    "bee",
+    "ecoli"
+   ],
+   "budget": "48 settings each, 5 seeds on test",
+   "notes": [
+    "Ant colony trades its expected allocation (pheromone share) instead of sampled head counts; found in a dry smoke run on dev folds before registration."
+   ],
+   "gates": [
+    "beats hold on return",
+    "beats hold on Sharpe",
+    "drawdown no worse than hold",
+    "wins at least 3 of 4 folds"
+   ]
+  },
+  {
+   "id": "LEAGUE/EXP-005",
+   "at": "2026-11-09T08:09:17.963Z",
+   "hypothesis": "EXP-001's only success was a lower drawdown from resting in cash. Using the organism purely as an in/out switch keeps that and beats hold on Sharpe.",
+   "organisms": [
+    "physarum",
+    "worm",
+    "fry",
+    "ant",
+    "bee",
+    "ecoli"
+   ],
+   "budget": "48 settings each, 5 seeds on test",
+   "notes": [
+    "Ant colony trades its expected allocation (pheromone share) instead of sampled head counts; found in a dry smoke run on dev folds before registration."
+   ],
+   "gates": [
+    "beats hold on return",
+    "beats hold on Sharpe",
+    "drawdown no worse than hold",
+    "wins at least 3 of 4 folds"
+   ]
+  },
+  {
+   "id": "LEAGUE/EXP-002",
+   "at": "2026-11-09T13:18:39.746Z",
+   "hypothesis": "Assets that on-chain traders are net buying are food; following real buy pressure beats equal-weight hold after costs. Swaps in these pools only began on 8 Jul 2026 and 4 of the 11 pools (SPY, QQQ, META, COIN) had no swaps before the sealed holdout, so the dev window is about 5 weeks (~140 bars, test folds of ~20 bars). Too short to conclude anything either way; this run checks the pipeline on real data.",
+   "organisms": [
+    "physarum",
+    "worm",
+    "fry",
+    "ant",
+    "bee",
+    "ecoli"
+   ],
+   "budget": "48 settings each, 5 seeds on test",
+   "notes": [
+    "Ant colony trades its expected allocation (pheromone share) instead of sampled head counts; found in a dry smoke run on dev folds before registration."
+   ],
+   "gates": [
+    "beats hold on return",
+    "beats hold on Sharpe",
+    "drawdown no worse than hold",
+    "wins at least 3 of 4 folds"
+   ]
+  },
+  {
+   "id": "LEAGUE/EXP-003",
+   "at": "2026-11-09T16:00:16.106Z",
+   "hypothesis": "Assets whose news turned better than usual keep rising for the next days; feeding on that beats equal-weight hold after costs.",
+   "organisms": [
+    "physarum",
+    "worm",
+    "fry",
+    "ant",
+    "bee",
+    "ecoli"
+   ],
+   "budget": "48 settings each, 5 seeds on test",
+   "notes": [
+    "Ant colony trades its expected allocation (pheromone share) instead of sampled head counts; found in a dry smoke run on dev folds before registration."
+   ],
+   "gates": [
+    "beats hold on return",
+    "beats hold on Sharpe",
+    "drawdown no worse than hold",
+    "wins at least 3 of 4 folds"
+   ]
+  },
+  {
+   "id": "LIVE-001",
+   "at": "2026-11-09T16:47:29.879Z",
+   "hypothesis": "Forward test on data that did not exist at registration: each organism keeps the setting from its last dev test fold for EXP-001, EXP-004 and EXP-005 and trades from the first market bar after registration, same costs and five seeds. Judged with the same four gates against equal-weight hold after at least three months; never re-tuned.",
+   "books": [
+    "EXP-001/physarum {\"look\":14,\"gamma\":0.12,\"rest\":0.3,\"every\":35,\"mu\":1.8,\"g0\":1}",
+    "EXP-001/worm {\"look\":140,\"scale\":1,\"buy\":0.3,\"halfLife\":24}",
+    "EXP-001/fry {\"look\":70,\"scale\":1,\"halfLife\":6,\"buyHz\":20}",
+    "EXP-001/ant {\"look\":70,\"rho\":0.1,\"beta\":3,\"every\":7}",
+    "EXP-001/bee {\"look\":14,\"quorum\":0.1,\"explore\":0.05,\"every\":35}",
+    "EXP-001/ecoli {\"look\":140,\"mem\":0.5,\"pHigh\":0.15,\"every\":35}",
+    "EXP-004/physarum {\"look\":35,\"gamma\":0.12,\"rest\":0.05,\"every\":35,\"mu\":1.8,\"g0\":1}",
+    "EXP-004/worm {\"look\":35,\"scale\":1,\"buy\":0.3,\"halfLife\":6}",
+    "EXP-004/fry {\"look\":14,\"scale\":4,\"halfLife\":6,\"buyHz\":20}",
+    "EXP-004/ant {\"look\":140,\"rho\":0.3,\"beta\":1,\"every\":35}",
+    "EXP-004/bee {\"look\":35,\"quorum\":0.1,\"explore\":0.05,\"every\":35}",
+    "EXP-004/ecoli {\"look\":140,\"mem\":0.95,\"pHigh\":0.4,\"every\":35}",
+    "EXP-005/physarum {\"look\":14,\"gamma\":0.12,\"rest\":0.05,\"every\":35,\"mu\":1.8,\"g0\":1}",
+    "EXP-005/worm {\"look\":140,\"scale\":1,\"buy\":0.5,\"halfLife\":24}",
+    "EXP-005/fry {\"look\":14,\"scale\":4,\"halfLife\":6,\"buyHz\":15}",
+    "EXP-005/ant {\"look\":14,\"rho\":0.3,\"beta\":3,\"every\":35}",
+    "EXP-005/bee {\"look\":14,\"quorum\":0.1,\"explore\":0.2,\"every\":35}",
+    "EXP-005/ecoli {\"look\":140,\"mem\":0.8,\"pHigh\":0.4,\"every\":7}"
+   ],
+   "gates": [
+    "beats hold on return",
+    "beats hold on Sharpe",
+    "drawdown no worse than hold",
+    "judged after at least three months"
+   ]
+  }
+ ],
+ "holdoutOpened": []
+}
