@@ -10,12 +10,14 @@
 <style>
 :root{--bg:#07080b;--panel:#0d0f14;--line:#1c2029;--ink:#e7e9ee;--dim:#7d8492;--acc:#e8c21a}
 *{box-sizing:border-box;margin:0}
-html,body{height:100%}body{background:var(--bg);color:var(--ink);font:14px/1.5 "Inter Tight",system-ui,sans-serif;display:grid;grid-template-rows:auto 1fr auto;min-height:100vh}
+html,body{height:100%}body{background:var(--bg);color:var(--ink);font:14px/1.5 "Inter Tight",system-ui,sans-serif;display:grid;grid-template-rows:auto auto 1fr auto;min-height:100vh}
 .mono{font-family:"JetBrains Mono",monospace}
 header{display:flex;align-items:center;gap:22px;padding:14px 22px;border-bottom:1px solid var(--line)}
 .logo{font-weight:600;letter-spacing:-.02em;display:flex;align-items:center;gap:8px;font-size:16px}
 .logo i{width:12px;height:12px;border-radius:50%;border:1.5px solid var(--ink);position:relative}.logo i::after{content:"";position:absolute;inset:2.5px;border-radius:50%;background:var(--ink)}
 .crumb{color:var(--dim);font:12px "JetBrains Mono"}
+.navl{display:flex;gap:6px}.navl a{color:var(--ink);text-decoration:none;border:1px solid var(--line);padding:5px 10px;border-radius:6px;font:12px "JetBrains Mono";white-space:nowrap}.navl a:hover{border-color:#3a4150;background:#151922}
+.intro{padding:12px 22px;border-bottom:1px solid var(--line);background:#0a0c10}.intro p{color:#b9bec9;font-size:14px;max-width:1100px}.intro b{color:var(--ink);font-weight:600}.intro span{color:var(--ink)}
 .exps{display:flex;gap:6px;margin-left:auto}.exps button{all:unset;cursor:pointer;font:12px "JetBrains Mono";padding:6px 10px;border-radius:6px;border:1px solid var(--line);color:var(--dim)}.exps button.on{color:var(--ink);border-color:#3a4150;background:#151922}
 .tabs{display:flex;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:3px}
 .tabs button{all:unset;cursor:pointer;padding:6px 12px;border-radius:6px;font-size:13px;color:var(--dim)}
@@ -49,11 +51,13 @@ footer{border-top:1px solid var(--line);display:grid;grid-template-columns:auto 
 footer button{all:unset;cursor:pointer;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#000;display:grid;place-items:center;font-size:13px}
 #tl{width:100%;height:54px;cursor:ew-resize;display:block}
 .date{font:12px "JetBrains Mono";color:var(--dim);text-align:right;min-width:150px}.date b{color:var(--ink);display:block;font-size:14px}
+@media(max-width:600px){body{grid-template-columns:minmax(0,1fr)}main{grid-template-columns:minmax(0,1fr)!important}header>*{min-width:0}.exps{flex:1 1 100%}.stage{min-height:0!important;aspect-ratio:900/700}.exps{overflow-x:auto;max-width:100%;margin-left:0;scrollbar-width:none}.exps button{white-space:nowrap;padding:6px 9px}.intro{padding:12px 16px}.intro p{font-size:13.5px}.hint{display:none}}
 @media(max-width:900px){main{grid-template-columns:1fr}aside{border-left:0;border-top:1px solid var(--line)}.stage{min-height:70vh}.crumb{display:none}header{flex-wrap:wrap;gap:10px;padding:12px 16px}.tabs{margin-left:0}footer{padding:10px 16px;grid-template-columns:auto 1fr}.date{grid-column:1/-1;text-align:left}.stage{min-height:60vh}}
 </style></head><body>
-<header><div class="logo"><img src="brand/logo.png" alt="" width="22" height="22" style="display:block">PETRI</div><span class="crumb" id="crumb"></span><a class="crumb" href="live.html" style="color:var(--ink);text-decoration:none;border:1px solid var(--line);padding:4px 9px;border-radius:6px">Live ●</a><a class="crumb" href="data.html" style="color:var(--ink);text-decoration:none;border:1px solid var(--line);padding:4px 9px;border-radius:6px">Data & method · verify →</a>
+<header><div class="logo"><img src="brand/logo.png" alt="" width="22" height="22" style="display:block">PETRI</div><span class="crumb" id="crumb"></span><nav class="navl"><a href="live.html">Live <i style="color:#7ee2a8;font-style:normal">●</i></a><a href="data.html">Data & method</a></nav>
 <div class="exps" id="exps"></div>
 <div class="tabs" id="tabs"><button data-l="hold" class="on">Holdings</button><button data-l="sim">Similarity</button><button data-l="mech">Mechanism</button></div></header>
+<div class="intro"><p><b>Six living minds trade the same 11 assets on real market data</b>: a slime mold, a worm's 302 neurons, a fish larva, an ant colony, a bee swarm and E.&nbsp;coli. Same rules for all, written down before each run. <span>None has passed all four tests yet, and you don't have to trust us:</span> open any organism and press Recompute.</p></div>
 <main><div class="stage"><svg id="map" viewBox="0 0 900 680" preserveAspectRatio="xMidYMid meet"><g id="edges"></g><g id="pulses"></g><g id="nodes"></g></svg><div class="hint" id="hint"></div></div>
 <aside><div class="card" id="card"></div><div class="card" style="padding-bottom:6px"><div class="k" id="lgTitle"></div></div><table id="league"></table></aside></main>
 <footer><button id="play" aria-label="Play">▶</button><canvas id="tl"></canvas><div class="date" id="date"></div></footer>
@@ -64,6 +68,7 @@ const want = new URLSearchParams(location.search).get("exp");
 let EX = await EXPS, L = await league(want && EX.find((e) => e.id === want) ? want : EX[0].id), SY = L.syms, N = L.t.length;
 let layer = "hold", idx = N - 1, focus = null, playing = false;
 const C = { x: 450, y: 340 }, P = {};
+const FS = matchMedia("(max-width: 600px)").matches ? 1.75 : 1;   // phone: the 900-wide map is shown at less than half size
 ORG.forEach((k, i) => { const a = -Math.PI / 2 + (i * 2 * Math.PI) / ORG.length; P[k] = { x: C.x + Math.cos(a) * 205, y: C.y + Math.sin(a) * 172 }; });
 P.hold = { x: C.x - 42, y: C.y + 12 }; P.random = { x: C.x + 42, y: C.y + 12 };
 SY.forEach((s, i) => { const a = -Math.PI / 2 + (i * 2 * Math.PI) / SY.length + 0.15; P["$" + s] = { x: C.x + Math.cos(a) * 385, y: C.y + Math.sin(a) * 290 }; });
@@ -81,14 +86,14 @@ function drawNodes() {
   gN.innerHTML = "";
   SY.forEach((s) => { const p = P["$" + s], g = el("g", { class: "node", "data-id": "$" + s }, gN);
     el("circle", { cx: p.x, cy: p.y, r: 15, fill: "#0d0f14", stroke: "#2a2f3a" }, g);
-    el("text", { x: p.x, y: p.y + 3.5, "text-anchor": "middle", fill: "#c9ced8", "font-size": 9, "font-family": "JetBrains Mono" }, g).textContent = s; });
+    el("text", { x: p.x, y: p.y + 3.5 * FS, "text-anchor": "middle", fill: "#c9ced8", "font-size": 9 * FS, "font-family": "JetBrains Mono" }, g).textContent = s; });
   Object.keys(BOOKS).forEach((k) => {
     const b = BOOKS[k], p = P[k], g = el("g", { class: "node", "data-id": k }, gN), big = b.kind === "org", r = big ? 30 : 17, st = status(L, k);
     if (big && st === "PROMISING") el("circle", { cx: p.x, cy: p.y, r: r + 12, fill: b.color, opacity: 0.14 }, g);
     el("circle", { cx: p.x, cy: p.y, r, fill: "#0b0d12", stroke: b.color, "stroke-width": big ? 2 : 1.2, "stroke-dasharray": live(k) ? "" : "3 4" }, g);
     el("circle", { cx: p.x, cy: p.y, r: big ? 6 : 3.5, fill: b.color }, g);
-    el("text", { x: p.x, y: p.y + r + 15, "text-anchor": "middle", fill: "#e7e9ee", "font-size": big ? 13 : 10, "font-weight": 600 }, g).textContent = b.name;
-    if (big) { const m = stats(L, k); el("text", { x: p.x, y: p.y + r + 28, "text-anchor": "middle", fill: st === "PROMISING" ? "#7ee2a8" : "#ff8a73", "font-size": 9, "font-family": "JetBrains Mono", "letter-spacing": 1 }, g).textContent = m ? `${pct(m.ret)} · ${st}` : st; }
+    el("text", { x: p.x, y: p.y + r + 15 * FS, "text-anchor": "middle", fill: "#e7e9ee", "font-size": (big ? 13 : 10) * FS, "font-weight": 600 }, g).textContent = b.name;
+    if (big) { const m = stats(L, k); el("text", { x: p.x, y: p.y + r + 28 * FS, "text-anchor": "middle", fill: st === "PROMISING" ? "#7ee2a8" : "#ff8a73", "font-size": 9 * FS, "font-family": "JetBrains Mono", "letter-spacing": 1 }, g).textContent = m ? `${pct(m.ret)} · ${st}` : st; }
   });
   gN.querySelectorAll(".node").forEach((n) => (n.onclick = (e) => { e.stopPropagation(); setFocus({ node: n.dataset.id }); }));
 }

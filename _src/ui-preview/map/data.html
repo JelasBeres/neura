@@ -14,13 +14,13 @@ h1{font-size:40px;font-weight:600;letter-spacing:-.03em;line-height:1.1}h2{font-
 .k{font:10px "JetBrains Mono";letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
 .src{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:16px}.src>div{border:1px solid var(--line);border-radius:10px;padding:18px}
 .src h3{font-size:16px;font-weight:600;margin:6px 0}.src p{font-size:14px}
-a{color:var(--ink)}code,.mono{font:12.5px "JetBrains Mono"}
+a{color:var(--ink)}code,.mono{font:12.5px "JetBrains Mono";overflow-wrap:anywhere}
 table{width:100%;border-collapse:collapse;font:12px "JetBrains Mono";margin-top:12px}th{color:var(--dim);font-weight:400;text-align:left;padding:7px 8px;border-bottom:1px solid var(--line)}td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top;word-break:break-all}#ledger td:nth-child(-n+2){white-space:nowrap;word-break:normal}
 .ok{color:#7ee2a8}.no{color:#ff8a73}.dim{color:var(--dim)}
 button{all:unset;cursor:pointer;font:500 13px "JetBrains Mono";padding:9px 14px;border-radius:8px;background:var(--ink);color:#000;margin-top:12px}
 pre{background:#0d0f14;border:1px solid var(--line);border-radius:10px;padding:16px;font:12.5px/1.7 "JetBrains Mono";overflow-x:auto;margin-top:12px;color:#c9ced8}
 .limits li{color:#b9bec9;margin:8px 0 0 18px;max-width:760px}
-@media(max-width:760px){.src{grid-template-columns:1fr}h1{font-size:30px}td:nth-child(3){display:none}}
+@media(max-width:760px){.src{grid-template-columns:1fr}h1{font-size:30px}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}#files td:nth-child(3){min-width:260px}#ledger td:nth-child(3){min-width:240px}main{padding:32px 16px 64px}header{padding:12px 16px}}
 </style></head><body>
 <header><a class="logo" href="index.html"><img src="brand/logo.png" alt="" width="22" height="22" style="display:block">PETRI</a><nav><a href="index.html">Map</a><a href="live.html">Live</a><a href="data.html" class="on">Data & method</a></nav></header>
 <main>

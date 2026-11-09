@@ -25,14 +25,14 @@ pre{background:#0d0f14;border:1px solid var(--line);border-radius:10px;padding:1
 #chart{width:100%;height:340px;display:block;margin-top:14px;border:1px solid var(--line);border-radius:10px;background:#0a0b0f}
 .state{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:26px;border:1px solid var(--line);border-radius:10px}.state div{padding:14px 16px;border-right:1px solid var(--line)}.state div:last-child{border-right:0}.state b{display:block;font:500 18px "JetBrains Mono"}.state span{font:10px "JetBrains Mono";letter-spacing:.12em;color:var(--dim)}
 .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px}
-@media(max-width:760px){.state{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.state{grid-template-columns:repeat(2,1fr)}.state div:nth-child(2){border-right:0}table{display:block;overflow-x:auto}main{padding:32px 16px 64px}header{padding:12px 16px}}
 </style></head><body>
 </head><body>
 <header><a class="logo" href="index.html"><img src="brand/logo.png" alt="" width="22" height="22" style="display:block">PETRI</a><nav><a href="index.html">Map</a><a href="live.html" class="on">Live</a><a href="data.html">Data & method</a></nav></header>
 <main>
 <div class="k">LIVE-001 · forward test</div>
 <h1>The future can't be fitted.</h1>
-<p class="lead">A backtest can always be tuned to look good. This can't: every organism was locked to its setting <b id="reg"></b>, before any of these prices existed, and now trades forward hour by hour with paper money. Recomputed from its first bar every hour; nothing is ever re-tuned.</p>
+<p class="lead">A backtest can always be tuned to look good. This can't: every organism was locked to its setting<b id="reg"></b>, before any of these prices existed, and now trades forward hour by hour with paper money. Recomputed from its first bar every hour; nothing is ever re-tuned.</p>
 <section class="state" id="state"></section>
 <div class="tabs" id="tabs"></div>
 <canvas id="chart"></canvas>
@@ -49,9 +49,10 @@ import { BOOKS, pct, day } from "./common.js";
 const L = await fetch("live/live.json", { cache: "no-store" }).then((r) => (r.ok ? r.json() : null), () => null), C = await fetch("live/chain.json", { cache: "no-store" }).then((r) => (r.ok ? r.json() : []), () => []);
 const fmt = (s) => new Date(s * 1000).toISOString().replace("T", " ").slice(0, 16);
 const st = document.getElementById("state");
+document.getElementById("chart").style.display = L && !L.waiting ? "" : "none";
 if (!L) { st.innerHTML = `<div style="grid-column:1/-1"><b>Starting</b><span>THE FIRST UPDATE HAS NOT RUN YET</span></div>`; }
 else {
-  document.getElementById("reg").textContent = "on " + L.registeredAt.replace("T", " ").slice(0, 16) + " UTC";
+  document.getElementById("reg").textContent = " on " + L.registeredAt.replace("T", " ").slice(0, 16) + " UTC";
   st.innerHTML = [[L.registeredAt.slice(0, 10), "REGISTERED"], [L.waiting ? "—" : fmt(L.firstBar), "FIRST BAR (UTC)"], [L.bars, "HOURLY BARS SO FAR"], [L.waiting ? "—" : pct(L.hold.ret), "HOLD SINCE START"]].map(([a, b]) => `<div><b>${a}</b><span>${b}</span></div>`).join("");
   if (L.waiting) document.getElementById("tbl").innerHTML = `<tr><td class="dim">Waiting for the first market bar after registration. The first numbers appear after the next US market hour closes.</td></tr>`;
   else {
