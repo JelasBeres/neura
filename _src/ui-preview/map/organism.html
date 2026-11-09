@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PETRI Specimen</title>
 <meta name="description" content="Six living minds trade the same 11 Robinhood Chain assets under pre-registered rules: slime mold, worm, fish fry, ants, bees and E. coli. Real data, honest results.">
-<meta property="og:type" content="website"><meta property="og:site_name" content="NEURA"><meta property="og:url" content="https://neurarh.trade/organism.html">
+<meta property="og:type" content="website"><meta property="og:site_name" content="NEURA"><meta property="og:url" content="https://neurarh.trade/organism">
 <meta property="og:title" content="NEURA · Specimen"><meta property="og:description" content="Six living minds trade the same 11 Robinhood Chain assets under pre-registered rules: slime mold, worm, fish fry, ants, bees and E. coli. Real data, honest results.">
 <meta property="og:image" content="https://neurarh.trade/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="NEURA · Specimen"><meta name="twitter:description" content="Six living minds trade the same 11 Robinhood Chain assets under pre-registered rules: slime mold, worm, fish fry, ants, bees and E. coli. Real data, honest results."><meta name="twitter:image" content="https://neurarh.trade/og.png">
@@ -47,7 +47,7 @@ footer button{all:unset;cursor:pointer;width:34px;height:34px;border-radius:50%;
 @media(max-width:600px){.lab:not(#mid){display:none}#mid{white-space:normal;width:86%;text-align:center;line-height:1.5}.brain{height:min(78vh,560px)}.exps{overflow-x:auto;max-width:100%;scrollbar-width:none}.exps a{white-space:nowrap}header{gap:10px}.verify table th:nth-child(2),.verify table td:nth-child(2){font-size:11px}}
 @media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}.lower,.notes{grid-template-columns:1fr}.lower>div{border-right:0;border-bottom:1px solid var(--line)}header{padding:12px 16px}}
 </style></head><body>
-<header><a href="index.html" id="back" style="display:flex;align-items:center;gap:8px"><img src="brand/logo.png" alt="NEURA" width="20" height="20" style="display:block">← map</a><a href="live.html">live</a><a href="data.html">data & method</a><div class="who"><h1 id="name"></h1><span id="lat"></span></div><span class="chip" id="exp"></span><span class="chip" id="verdict"></span><div class="exps" id="exps"></div><span class="date" id="date"></span></header>
+<header><a href="/" id="back" style="display:flex;align-items:center;gap:8px"><img src="brand/logo.png" alt="NEURA" width="20" height="20" style="display:block">← map</a><a href="live">live</a><a href="data">data & method</a><div class="who"><h1 id="name"></h1><span id="lat"></span></div><span class="chip" id="exp"></span><span class="chip" id="verdict"></span><div class="exps" id="exps"></div><span class="date" id="date"></span></header>
 <section class="stats" id="stats"></section>
 <section class="brain" id="brain"><canvas class="main" id="cv"></canvas><span class="lab" style="left:22px">INPUTS · FOOD PER ASSET</span><span class="lab" id="mid" style="left:50%;transform:translateX(-50%)"></span><span class="lab" style="right:22px">OUTPUTS · SHARE OF CAPITAL</span></section>
 <section id="body"></section>
@@ -59,10 +59,10 @@ const q = new URLSearchParams(location.search), k = q.get("k") || "physarum", B 
 const L = await league(expId), O = L.organisms[k], SY = L.syms, N = L.t.length, live = !!O;
 let idx = Math.floor(N * 0.6), playing = false;
 document.documentElement.style.setProperty("--c", B.color); document.title = `PETRI · ${B.name}`;
-document.getElementById("back").href = `index.html?exp=${expId}`;
+document.getElementById("back").href = `/?exp=${expId}`;
 document.getElementById("name").textContent = B.name; document.getElementById("lat").textContent = `${B.latin} · ${B.brain}`;
 document.getElementById("exp").textContent = `${L.id} · ${L.title}`;
-const v = document.getElementById("verdict"); v.textContent = live ? O.verdict : "PENDING"; v.className = "chip " + (live ? O.verdict : "PENDING");
+document.getElementById("verdict").remove();
 document.getElementById("exps").innerHTML = EX.map((e) => `<a href="?k=${k}&exp=${e.id}" class="${e.id === expId ? "on" : ""}" style="text-decoration:none">${e.id}</a>`).join("");
 document.getElementById("mid").textContent = `${B.name.toUpperCase()} · ${INNER[k].toUpperCase()} · REPLAYED FROM THE BACKTEST RECORD`;
 
@@ -87,7 +87,7 @@ document.getElementById("body").innerHTML = `
  <div class="verify"><div><div class="k">Verify · don't trust it, recompute it</div><h2>Run ${B.name} in your own browser</h2>
   <p>Your browser downloads the same engine files the server ran and the raw market data, then runs ${B.name} through all four folds with the setting it chose and the same five seeds. If one number on this page were typed in by hand, it would not match. Nothing is sent anywhere.</p>
   <button id="vbtn">Recompute ${L.id} · ${B.name}</button><div class="bar"><i id="vbar"></i></div><span id="vmsg" style="font:12px JetBrains Mono;color:var(--dim)">${k === "fry" ? "Fry simulates its 11 cells in full: about a minute." : "Takes a few seconds."}</span>
-  <p style="margin-top:12px;font-size:13px">Engine files, raw data and their SHA-256 hashes: <a href="data.html">Data & method →</a></p></div>
+  <p style="margin-top:12px;font-size:13px">Engine files, raw data and their SHA-256 hashes: <a href="data">Data & method →</a></p></div>
   <div id="vout"></div></div>
  <div class="notes" style="grid-template-columns:repeat(2,1fr)">${reading.map((r) => `<div><p>${r}</p></div>`).join("")}</div>
  ${L.notes?.length ? `<div class="notes" style="grid-template-columns:1fr"><div style="border-color:#3a4150"><div class="k">Disclosed before registration</div><p>${L.notes.join(" ")}</p></div></div>` : ""}`;

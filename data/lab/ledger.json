@@ -156,6 +156,29 @@
     "drawdown no worse than hold",
     "judged after at least three months"
    ]
+  },
+  {
+   "id": "LEAGUE/EXP-006",
+   "at": "2026-11-09T21:00:08.113Z",
+   "hypothesis": "EXP-004 had the only real edge (Fry beat hold on return, Sharpe and drawdown) but lost folds by sitting in cash while the market rallied. Keeping 70% in equal-weight hold and letting the organism steer 30% with the same food keeps up with rallies and beats hold after costs. Designed after seeing EXP-001 to EXP-005 on the same dev data; registered and run once, with no dry run.",
+   "organisms": [
+    "physarum",
+    "worm",
+    "fry",
+    "ant",
+    "bee",
+    "ecoli"
+   ],
+   "budget": "48 settings each, 5 seeds on test",
+   "notes": [
+    "Ant colony trades its expected allocation (pheromone share) instead of sampled head counts; found in a dry smoke run on dev folds before registration."
+   ],
+   "gates": [
+    "beats hold on return",
+    "beats hold on Sharpe",
+    "drawdown no worse than hold",
+    "wins at least 3 of 4 folds"
+   ]
   }
  ],
  "holdoutOpened": []

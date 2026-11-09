@@ -28,7 +28,7 @@ pre{background:#0d0f14;border:1px solid var(--line);border-radius:10px;padding:1
 @media(max-width:760px){.state{grid-template-columns:repeat(2,1fr)}.state div:nth-child(2){border-right:0}table{display:block;overflow-x:auto}main{padding:32px 16px 64px}header{padding:12px 16px}}
 </style></head><body>
 </head><body>
-<header><a class="logo" href="index.html"><img src="brand/logo.png" alt="" width="22" height="22" style="display:block">PETRI</a><nav><a href="index.html">Map</a><a href="live.html" class="on">Live</a><a href="data.html">Data & method</a></nav></header>
+<header><a class="logo" href="/"><img src="brand/logo.png" alt="" width="22" height="22" style="display:block">PETRI</a><nav><a href="/">Map</a><a href="live" class="on">Live</a><a href="data">Data & method</a></nav></header>
 <main>
 <div class="k">LIVE-001 · forward test</div>
 <h1>The future can't be fitted.</h1>
@@ -42,7 +42,7 @@ pre{background:#0d0f14;border:1px solid var(--line);border-radius:10px;padding:1
 <p class="mono"><a href="live/chain.json">live/chain.json</a> · prices used: <a href="live/hist-live.json">live/hist-live.json</a> · numbers: <a href="live/live.json">live/live.json</a></p>
 <table id="chain"><tr><th>Updated (UTC)</th><th>Last bar</th><th>SHA-256</th></tr></table>
 <h2>Recompute it</h2>
-<p>The numbers come from the same engine files as the backtest (<a href="data.html">Data & method</a>). Run <code>server/live/forward.mjs</code> from the source with <code>live/hist-live.json</code> and you get the same live.json.</p>
+<p>The numbers come from the same engine files as the backtest (<a href="data">Data & method</a>). Run <code>server/live/forward.mjs</code> from the source with <code>live/hist-live.json</code> and you get the same live.json.</p>
 </main>
 <script type="module">
 import { BOOKS, pct, day } from "./common.js";

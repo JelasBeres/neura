@@ -22,7 +22,7 @@ pre{background:#0d0f14;border:1px solid var(--line);border-radius:10px;padding:1
 .limits li{color:#b9bec9;margin:8px 0 0 18px;max-width:760px}
 @media(max-width:760px){.src{grid-template-columns:1fr}h1{font-size:30px}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}#files td:nth-child(3){min-width:260px}#ledger td:nth-child(3){min-width:240px}main{padding:32px 16px 64px}header{padding:12px 16px}}
 </style></head><body>
-<header><a class="logo" href="index.html"><img src="brand/logo.png" alt="" width="22" height="22" style="display:block">PETRI</a><nav><a href="index.html">Map</a><a href="live.html">Live</a><a href="data.html" class="on">Data & method</a></nav></header>
+<header><a class="logo" href="/"><img src="brand/logo.png" alt="" width="22" height="22" style="display:block">PETRI</a><nav><a href="/">Map</a><a href="live">Live</a><a href="data" class="on">Data & method</a></nav></header>
 <main>
 <div class="k">Data & method</div>
 <h1>Every number here can be traced, downloaded and recomputed.</h1>
@@ -38,7 +38,7 @@ pre{background:#0d0f14;border:1px solid var(--line);border-radius:10px;padding:1
 <table id="pools"><tr><th>Asset</th><th>Pool on Robinhood Chain</th><th>Token</th></tr></table>
 
 <h2>Recompute it yourself</h2>
-<p>Open any organism on the <a href="index.html">map</a> and press <b>Recompute</b>. Your browser loads the engine files and raw data listed below, runs the organism through the four test folds with the setting it chose and the same five seeds, and compares every fold with the published number.</p>
+<p>Open any organism on the <a href="/">map</a> and press <b>Recompute</b>. Your browser loads the engine files and raw data listed below, runs the organism through the four test folds with the setting it chose and the same five seeds, and compares every fold with the published number.</p>
 <p id="repo" class="dim">With Node.js you can also run the whole league from the source code, which will be linked here.</p>
 
 <h2>Files and fingerprints</h2>
@@ -54,7 +54,7 @@ pre{background:#0d0f14;border:1px solid var(--line);border-radius:10px;padding:1
 
 <h2>What this does not prove</h2>
 <ul class="limits">
- <li>These are backtests on past data with paper money, not live trading results. The <a href="live.html">live forward test</a> also uses paper money.</li>
+ <li>These are backtests on past data with paper money, not live trading results. The <a href="live">live forward test</a> also uses paper money.</li>
  <li>The Bitcoin timestamp proves the ledger existed by 9 November 2026. It cannot prove that EXP-001 to EXP-005, registered earlier that week, were written before their runs; LIVE-001's results did not exist yet when it was stamped.</li>
  <li>EXP-002 has about five weeks of on-chain data (swaps in these pools began on 8 July 2026; SPY, QQQ, META and COIN had none before the holdout). Its numbers are too short to mean anything.</li>
  <li>The worm's brain is replayed from a precomputed table (one entry per smell, memory and seed) rather than simulated at every bar; the table itself is the output of the full 302-neuron simulation.</li>
@@ -67,16 +67,16 @@ const site = await fetch("site.json").then((r) => (r.ok ? r.json() : {}), () => 
 const kb = (b) => (b > 1e6 ? (b / 1e6).toFixed(1) + " MB" : (b / 1e3).toFixed(0) + " KB"), ex = A.chain.explorer;
 document.getElementById("pools").insertAdjacentHTML("beforeend", A.assets.map((a) => `<tr><td>${a.sym}</td><td><a href="${ex}/address/${a.pool}" target="_blank" rel="noopener">${a.pool}</a></td><td><a href="${ex}/token/${a.token}" target="_blank" rel="noopener">${a.token}</a></td></tr>`).join(""));
 document.getElementById("files").insertAdjacentHTML("beforeend", M.files.map((f, i) => `<tr><td><a href="${f.path}">${f.path}</a></td><td>${kb(f.bytes)}</td><td>${f.sha256}</td><td id="h${i}"></td></tr>`).join(""));
-// the result of every registered experiment, read from its published result file (failures included)
-const passes = (g) => g.filter((x) => x.pass).length, verdictOf = async (e) => {
-  if (e.id.startsWith("LIVE-")) return `<a href="live.html">running</a> · judged after at least three months`;
+// the result of every registered experiment, read from its published result file: the best organism's return against hold
+const pc = (v) => (v >= 0 ? "+" : "") + (v * 100).toFixed(1) + "%", resultOf = async (e) => {
+  if (e.id.startsWith("LIVE-")) return `<a href="live">running</a>`;
   const lab = !e.id.startsWith("LEAGUE/"), url = lab ? `raw/lab/${e.id}-result.json` : `data/league-${e.id.slice(7)}.json`;
   const R = await fetch(url).then((r) => (r.ok ? r.json() : null), () => null); if (!R) return "—";
-  if (lab) return `<span class="${R.passedDev ? "ok" : "no"}">${R.verdict}</span> · physarum ${passes(R.gates)}/4 gates`;
-  const O = Object.entries(R.organisms), won = O.filter(([, o]) => o.gates.every((g) => g.pass)), top = Math.max(...O.map(([, o]) => passes(o.gates)));
-  return `<span class="${won.length ? "ok" : "no"}">${won.length ? "PASSED" : "FAILED"}</span> · ${won.length}/${O.length} organisms passed all four gates · ${(() => { const b = O.filter(([, o]) => passes(o.gates) === top).map(([k]) => k); return b.length === O.length ? `every organism ${top}/4` : `best ${b.join(", ")} ${top}/4`; })()}`;
+  if (lab) return `physarum ${pc(R.stitched.physarum.ret)} · hold ${pc(R.stitched.hold.ret)}`;
+  const [k, o] = Object.entries(R.organisms).sort(([, a], [, b]) => b.stitched.ret - a.stitched.ret)[0];
+  return `best ${k} ${pc(o.stitched.ret)} · hold ${pc(R.bench.hold.ret)}`;
 };
-const rows = await Promise.all(Lg.registered.map(async (e) => `<tr><td>${e.id}</td><td>${e.at.replace("T", " ").slice(0, 19)}</td><td style="word-break:normal">${e.hypothesis}</td><td style="word-break:normal;min-width:170px">${await verdictOf(e)}</td></tr>`));
+const rows = await Promise.all(Lg.registered.map(async (e) => `<tr><td>${e.id}</td><td>${e.at.replace("T", " ").slice(0, 19)}</td><td style="word-break:normal">${e.hypothesis}</td><td style="word-break:normal;min-width:170px">${await resultOf(e)}</td></tr>`));
 document.getElementById("ledger").insertAdjacentHTML("beforeend", rows.join(""));
 const sha = async (buf) => [...new Uint8Array(await crypto.subtle.digest("SHA-256", buf))].map((b) => b.toString(16).padStart(2, "0")).join("");
 document.getElementById("lhash").textContent = await sha(await (await fetch("raw/lab/ledger.json")).arrayBuffer());

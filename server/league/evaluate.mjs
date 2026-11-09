@@ -9,10 +9,11 @@ export function evaluate({ exp, org, p, seed, t0, t1, linkAt, blind, record }) {
   const O = ORGS[org], E = EXPS[exp];
   if (!linkCache.has(linkAt)) linkCache.set(linkAt, linksFor(0, linkAt));
   const me = O.make({ ...ctx, links: linkCache.get(linkAt) }, blind ? zeros : foodFor(exp, p.look), p, seed);
-  const every = p.every || 7, band = 0.1, rebal = E.guard || O.mode === "rebalance", frames = [];
+  const every = p.every || 7, band = 0.1, rebal = E.guard || E.overlay || O.mode === "rebalance", frames = [];
   const alloc = (t, w) => {
     let target = me.step(t);
     if (E.guard) { const f = target.reduce((a, x) => a + x, 0); target = eqw.map((x) => x * f); }
+    if (E.overlay) target = eqw.map((x, k) => x * (1 - E.overlay) + target[k] * E.overlay);
     const nw = !rebal ? target : t % every === 0 && target.reduce((a, x, k) => a + Math.abs(x - w[k]), 0) > band ? target : w;
     if (record && (t - t0) % 2 === 0) frames.push({ t: ctx.clock[t], w: nw.map((x) => +x.toFixed(3)), inner: me.inner().map((x) => +(+x).toFixed(3)) });
     return nw;

@@ -9,7 +9,7 @@ const t0 = Math.floor(DEV * FIRST_TRAIN), fsz = Math.floor((DEV - t0) / FOLDS), 
 const at = new Map(ctx.clock.map((t, i) => [t, i])), r3 = (v) => +(+v).toFixed(3);
 const benchW = (spans, mk) => { const out = new Map(); spans.forEach(([a, b], f) => { const al = mk(f); run((t, w) => { const nw = al(t, w); if ((t - a) % 2 === 0) out.set(ctx.clock[t], nw.map(r3)); return nw; }, a, b); }); return out; };
 const index = [];
-for (const exp of ["EXP-001", "EXP-002", "EXP-003", "EXP-004", "EXP-005"]) {
+for (const exp of ["EXP-001", "EXP-002", "EXP-003", "EXP-004", "EXP-005", "EXP-006"]) {
   if (!fs.existsSync(D + exp + ".json")) continue;
   const R = JSON.parse(fs.readFileSync(D + exp + ".json")), spans = R.window ? R.window.spans.map(([a, b]) => [at.get(a), at.get(b) + 1]) : SPANS,
     HW = benchW(spans, () => hold()), RW = benchW(spans, (f) => random(f + 3)), foodCache = new Map(), food = (look) => { if (!foodCache.has(look)) foodCache.set(look, EXPS[exp].food(ctx, { look })); return foodCache.get(look); };

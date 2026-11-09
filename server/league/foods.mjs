@@ -46,6 +46,9 @@ export const EXPS = {
   "EXP-005": { title: "Organism as risk guard", food: (c, p) => momentum(c, p.look), guard: true,
     foodText: "Momentum food, but the organism only decides how much to invest; whatever it invests is spread equally over all 11 assets.",
     hypothesis: "EXP-001's only success was a lower drawdown from resting in cash. Using the organism purely as an in/out switch keeps that and beats hold on Sharpe." },
+  "EXP-006": { title: "Hold with a mean-reversion tilt", food: (c, p) => momentum(c, p.look, -1), guard: false, overlay: 0.3,
+    foodText: "EXP-004's food (recent losers relative to their volatility), but the organism only steers 30% of the capital; 70% always sits in equal-weight hold. Checked for a rebalance at most once a day.",
+    hypothesis: "EXP-004 had the only real edge (Fry beat hold on return, Sharpe and drawdown) but lost folds by sitting in cash while the market rallied. Keeping 70% in equal-weight hold and letting the organism steer 30% with the same food keeps up with rallies and beats hold after costs. Designed after seeing EXP-001 to EXP-005 on the same dev data; registered and run once, with no dry run." },
 };
 
 // Disclosed before registration: a DRY smoke run on the dev folds (no holdout) showed ants trading the noise of 200 sampled
