@@ -15,7 +15,7 @@ cp server/solver.mjs $O/engine/; cp server/lib/load.mjs $O/engine/lib/; cp serve
 cp server/league/orgs.mjs server/league/foods.mjs server/league/evaluate.mjs server/league/verify.mjs $O/engine/league/
 cp server/league/vendor/fry-circuit.mjs $O/engine/league/vendor/
 # the raw inputs, and the pre-registration ledger
-cp data/hist-1h.json data/flow-1h.json data/news-1d.json data/assets.json $O/raw/; cp data/league/worm-table.json $O/raw/league/; cp data/lab/ledger.json deploy/ledger-anchored.json deploy/ledger-anchored.json.ots $O/raw/lab/   # the ledger as timestamped in Bitcoin, with its OpenTimestamps proof
+cp data/hist-1h.json data/flow-1h.json data/news-1d.json data/assets.json $O/raw/; cp data/league/worm-table.json $O/raw/league/; cp data/lab/results/EXP-001.json $O/raw/lab/EXP-001-result.json; cp data/lab/ledger.json deploy/ledger-anchored.json deploy/ledger-anchored.json.ots $O/raw/lab/   # the ledger as timestamped in Bitcoin, with its OpenTimestamps proof
 node deploy/manifest.mjs $O
 # the map lives at the site root, the organism drawings under lib/; the working name PETRI becomes NEURA
 sed -i '' -e 's#\.\./landing/g/specimens\.js#./lib/specimens.js#g' -e 's/PETRI/NEURA/g' $O/index.html $O/organism.html $O/data.html $O/live.html $O/common.js

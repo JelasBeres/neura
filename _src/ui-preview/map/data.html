@@ -48,7 +48,7 @@ pre{background:#0d0f14;border:1px solid var(--line);border-radius:10px;padding:1
 
 <h2>Registered before the run</h2>
 <p>Each experiment's hypothesis, organisms, budget and gates are written to the ledger before it runs, so the target cannot move after the result is known. The last three months of data are sealed and stay unopened until an experiment passes all four gates on the rest.</p>
-<table id="ledger"><tr><th>Experiment</th><th>Registered (UTC)</th><th>Hypothesis</th></tr></table>
+<table id="ledger"><tr><th>Experiment</th><th>Registered (UTC)</th><th>Hypothesis</th><th>Result</th></tr></table>
 <p class="mono" style="margin-top:12px">Ledger: <a href="raw/lab/ledger.json">raw/lab/ledger.json</a> · SHA-256 <span id="lhash">…</span></p>
 <p id="anchor" class="dim">Not yet timestamped: the ledger's hash will be anchored in a public blockchain so registrations can be checked against an independent clock.</p>
 
@@ -67,7 +67,17 @@ const site = await fetch("site.json").then((r) => (r.ok ? r.json() : {}), () => 
 const kb = (b) => (b > 1e6 ? (b / 1e6).toFixed(1) + " MB" : (b / 1e3).toFixed(0) + " KB"), ex = A.chain.explorer;
 document.getElementById("pools").insertAdjacentHTML("beforeend", A.assets.map((a) => `<tr><td>${a.sym}</td><td><a href="${ex}/address/${a.pool}" target="_blank" rel="noopener">${a.pool}</a></td><td><a href="${ex}/token/${a.token}" target="_blank" rel="noopener">${a.token}</a></td></tr>`).join(""));
 document.getElementById("files").insertAdjacentHTML("beforeend", M.files.map((f, i) => `<tr><td><a href="${f.path}">${f.path}</a></td><td>${kb(f.bytes)}</td><td>${f.sha256}</td><td id="h${i}"></td></tr>`).join(""));
-document.getElementById("ledger").insertAdjacentHTML("beforeend", Lg.registered.map((e) => `<tr><td>${e.id}</td><td>${e.at.replace("T", " ").slice(0, 19)}</td><td style="word-break:normal">${e.hypothesis}</td></tr>`).join(""));
+// the result of every registered experiment, read from its published result file (failures included)
+const passes = (g) => g.filter((x) => x.pass).length, verdictOf = async (e) => {
+  if (e.id.startsWith("LIVE-")) return `<a href="live.html">running</a> · judged after at least three months`;
+  const lab = !e.id.startsWith("LEAGUE/"), url = lab ? `raw/lab/${e.id}-result.json` : `data/league-${e.id.slice(7)}.json`;
+  const R = await fetch(url).then((r) => (r.ok ? r.json() : null), () => null); if (!R) return "—";
+  if (lab) return `<span class="${R.passedDev ? "ok" : "no"}">${R.verdict}</span> · physarum ${passes(R.gates)}/4 gates`;
+  const O = Object.entries(R.organisms), won = O.filter(([, o]) => o.gates.every((g) => g.pass)), top = Math.max(...O.map(([, o]) => passes(o.gates)));
+  return `<span class="${won.length ? "ok" : "no"}">${won.length ? "PASSED" : "FAILED"}</span> · ${won.length}/${O.length} organisms passed all four gates · ${(() => { const b = O.filter(([, o]) => passes(o.gates) === top).map(([k]) => k); return b.length === O.length ? `every organism ${top}/4` : `best ${b.join(", ")} ${top}/4`; })()}`;
+};
+const rows = await Promise.all(Lg.registered.map(async (e) => `<tr><td>${e.id}</td><td>${e.at.replace("T", " ").slice(0, 19)}</td><td style="word-break:normal">${e.hypothesis}</td><td style="word-break:normal;min-width:170px">${await verdictOf(e)}</td></tr>`));
+document.getElementById("ledger").insertAdjacentHTML("beforeend", rows.join(""));
 const sha = async (buf) => [...new Uint8Array(await crypto.subtle.digest("SHA-256", buf))].map((b) => b.toString(16).padStart(2, "0")).join("");
 document.getElementById("lhash").textContent = await sha(await (await fetch("raw/lab/ledger.json")).arrayBuffer());
 const an = site.anchor;
