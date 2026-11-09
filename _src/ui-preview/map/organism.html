@@ -1,0 +1,175 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PETRI Specimen</title>
+<meta name="description" content="Six living minds trade the same 11 Robinhood Chain assets under pre-registered rules: slime mold, worm, fish fry, ants, bees and E. coli. Real data, honest results.">
+<meta property="og:type" content="website"><meta property="og:site_name" content="NEURA"><meta property="og:url" content="https://neurarh.trade/organism.html">
+<meta property="og:title" content="NEURA · Specimen"><meta property="og:description" content="Six living minds trade the same 11 Robinhood Chain assets under pre-registered rules: slime mold, worm, fish fry, ants, bees and E. coli. Real data, honest results.">
+<meta property="og:image" content="https://neurarh.trade/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="NEURA · Specimen"><meta name="twitter:description" content="Six living minds trade the same 11 Robinhood Chain assets under pre-registered rules: slime mold, worm, fish fry, ants, bees and E. coli. Real data, honest results."><meta name="twitter:image" content="https://neurarh.trade/og.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%23e7e9ee' stroke-width='3'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23e7e9ee'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07080b;--panel:#0d0f14;--line:#1c2029;--ink:#e7e9ee;--dim:#7d8492;--c:#e8c21a}
+*{box-sizing:border-box;margin:0}body{padding-bottom:70px;background:var(--bg);color:var(--ink);font:14px/1.5 "Inter Tight",system-ui,sans-serif}
+.mono{font-family:"JetBrains Mono",monospace}
+header{display:flex;align-items:center;gap:16px;padding:14px 22px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+header a{color:var(--dim);text-decoration:none;font:12px "JetBrains Mono"}header a:hover{color:var(--ink)}
+.who{display:flex;align-items:baseline;gap:10px}.who h1{font-size:20px;font-weight:600;letter-spacing:-.02em}.who span{color:var(--dim);font-style:italic;font-size:13px}
+.chip{font:500 11px "JetBrains Mono";padding:3px 8px;border-radius:4px;background:#15181f;color:#9aa1ad;letter-spacing:.06em}
+.chip.FAILED{background:#3a1814;color:#ff8a73}.chip.PROMISING{background:#123222;color:#7ee2a8}.chip.PENDING{background:#1b1f28;color:var(--dim)}
+.exps{display:flex;gap:6px;margin-left:auto}.exps a{font:12px "JetBrains Mono";padding:5px 9px;border-radius:6px;border:1px solid var(--line);color:var(--dim)}.exps a.on{color:var(--ink);border-color:#3a4150;background:#151922}
+.date{font:12px "JetBrains Mono";color:var(--dim)}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--line)}
+.stats div{padding:14px 22px;border-right:1px solid var(--line)}.stats div:last-child{border-right:0}
+.stats b{display:block;font:500 22px "JetBrains Mono";letter-spacing:-.02em}.stats span{font:10px "JetBrains Mono";color:var(--dim);letter-spacing:.1em}
+.stats small{font:11px "JetBrains Mono";color:var(--dim);margin-left:6px}
+.brain{position:relative;height:min(68vh,620px);min-height:440px;border-bottom:1px solid var(--line);background:radial-gradient(ellipse at 50% 50%,#10131a,var(--bg) 70%)}
+.brain canvas.main{position:absolute;inset:0;width:100%;height:100%}
+.dish{position:absolute;border-radius:50%;overflow:hidden;background:#0b0c0f;box-shadow:0 0 0 1px var(--line)}.dish canvas{position:absolute;inset:0;width:100%;height:100%}
+.lab{position:absolute;top:14px;font:10px "JetBrains Mono";letter-spacing:.14em;color:var(--dim)}
+.lower{display:grid;grid-template-columns:1.2fr 1fr;border-bottom:1px solid var(--line)}
+.lower>div{padding:22px;border-right:1px solid var(--line)}.lower>div:last-child{border-right:0}
+.k{font:10px "JetBrains Mono";letter-spacing:.14em;color:var(--dim);text-transform:uppercase;margin-bottom:8px}
+h2{font-size:20px;font-weight:600;letter-spacing:-.02em;margin-bottom:8px}
+p{color:#b9bec9;font-size:14px;margin-bottom:10px;max-width:720px}
+.gates div{display:flex;gap:10px;font:12px "JetBrains Mono";padding:6px 0;border-bottom:1px dashed var(--line)}
+.ok{color:#7ee2a8}.no{color:#ff8a73}
+table{width:100%;border-collapse:collapse;font:12px "JetBrains Mono";margin-top:6px}th{color:var(--dim);font-weight:400;text-align:right;padding:6px 8px;border-bottom:1px solid var(--line)}th:first-child,td:first-child{text-align:left}td{text-align:right;padding:7px 8px;border-bottom:1px solid var(--line)}
+.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:22px;border-bottom:1px solid var(--line)}
+.notes div{border-top:2px solid var(--c);padding-top:10px}
+.verify{padding:22px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr 1.2fr;gap:28px}
+.verify button{all:unset;cursor:pointer;font:500 13px "JetBrains Mono";padding:10px 16px;border-radius:8px;background:var(--c);color:#000;margin-top:6px}.verify button[disabled]{opacity:.5;cursor:default}
+.bar{height:4px;background:#1a1e27;border-radius:2px;margin:14px 0 6px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--c);transition:width .2s}
+.verify a{color:var(--ink)}.vsum{font:500 15px "JetBrains Mono";margin-top:12px}
+@media(max-width:900px){.verify{grid-template-columns:1fr}}
+footer{position:sticky;bottom:0;background:rgba(7,8,11,.94);backdrop-filter:blur(6px);border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;padding:10px 22px}
+footer button{all:unset;cursor:pointer;width:34px;height:34px;border-radius:50%;background:var(--ink);color:#000;display:grid;place-items:center;font-size:13px}
+#tl{width:100%;height:46px;cursor:ew-resize;display:block}
+@media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}.lower,.notes{grid-template-columns:1fr}.lower>div{border-right:0;border-bottom:1px solid var(--line)}header{padding:12px 16px}}
+</style></head><body>
+<header><a href="index.html" id="back">← map</a><a href="live.html">live</a><a href="data.html">data & method</a><div class="who"><h1 id="name"></h1><span id="lat"></span></div><span class="chip" id="exp"></span><span class="chip" id="verdict"></span><div class="exps" id="exps"></div><span class="date" id="date"></span></header>
+<section class="stats" id="stats"></section>
+<section class="brain" id="brain"><canvas class="main" id="cv"></canvas><span class="lab" style="left:22px">INPUTS · FOOD PER ASSET</span><span class="lab" id="mid" style="left:50%;transform:translateX(-50%)"></span><span class="lab" style="right:22px">OUTPUTS · SHARE OF CAPITAL</span></section>
+<section id="body"></section>
+<footer id="foot"><button id="play" aria-label="Play">▶</button><canvas id="tl"></canvas></footer>
+<script type="module">
+import { BOOKS, INNER, EXPS, league, pct, day } from "./common.js";
+import { mount } from "../landing/g/specimens.js";
+const q = new URLSearchParams(location.search), k = q.get("k") || "physarum", B = BOOKS[k], EX = await EXPS, expId = EX.find((e) => e.id === q.get("exp")) ? q.get("exp") : EX[0].id;
+const L = await league(expId), O = L.organisms[k], SY = L.syms, N = L.t.length, live = !!O;
+let idx = Math.floor(N * 0.6), playing = false;
+document.documentElement.style.setProperty("--c", B.color); document.title = `PETRI · ${B.name}`;
+document.getElementById("back").href = `index.html?exp=${expId}`;
+document.getElementById("name").textContent = B.name; document.getElementById("lat").textContent = `${B.latin} · ${B.brain}`;
+document.getElementById("exp").textContent = `${L.id} · ${L.title}`;
+const v = document.getElementById("verdict"); v.textContent = live ? O.verdict : "PENDING"; v.className = "chip " + (live ? O.verdict : "PENDING");
+document.getElementById("exps").innerHTML = EX.map((e) => `<a href="?k=${k}&exp=${e.id}" class="${e.id === expId ? "on" : ""}" style="text-decoration:none">${e.id}</a>`).join("");
+document.getElementById("mid").textContent = `${B.name.toUpperCase()} · ${INNER[k].toUpperCase()} · REPLAYED FROM THE BACKTEST RECORD`;
+
+// ---------- stats + reading ----------
+const S = O.stitched, H = L.bench.hold, gp = O.gates.filter((g) => g.pass).length, fw = O.folds.filter((f) => f.win).length;
+const sr = O.seeds.map((s) => s.ret), mean = (a) => a.reduce((x, y) => x + y, 0) / a.length;
+document.getElementById("stats").innerHTML = [[pct(S.ret), "RETURN", `hold ${pct(H.ret)}`, S.ret > H.ret ? "ok" : "no"], [S.sharpe.toFixed(2), "SHARPE", `hold ${H.sharpe.toFixed(2)}`, S.sharpe > H.sharpe ? "ok" : "no"], [(S.maxDD * 100).toFixed(1) + "%", "MAX DRAWDOWN", `hold ${(H.maxDD * 100).toFixed(1)}%`, S.maxDD <= H.maxDD ? "ok" : "no"], [`${gp}/4`, "GATES PASSED", "need 4/4"], [pct(O.blind.ret), "BLIND TWIN", "same mind, no food"]]
+  .map(([a, b, c, cl]) => `<div><b class="${cl || ""}">${a}<small>${c}</small></b><span>${b}</span></div>`).join("");
+const trainBest = mean(O.folds.map((f) => f.trainSharpe)), trainMed = mean(O.folds.map((f) => f.medianTrainSharpe));
+const foodEdge = S.ret - O.blind.ret;
+const reading = [
+  `<b>Against hold.</b> ${pct(S.ret)} vs ${pct(H.ret)} after costs, Sharpe ${S.sharpe.toFixed(2)} vs ${H.sharpe.toFixed(2)}. It won ${fw} of 4 folds.`,
+  `<b>Does the food matter?</b> The blind twin, same setting with no food, made ${pct(O.blind.ret)}. ${Math.abs(foodEdge) < 0.01 ? "Over the whole test the food made almost no difference, even though single folds differed." : `Food ${foodEdge >= 0 ? "added" : "cost"} ${pct(Math.abs(foodEdge)).replace("+", "")}.`}`,
+  `<b>Luck in selection.</b> The chosen setting averaged a training Sharpe of ${trainBest.toFixed(2)}; the median of its 48 settings averaged ${trainMed.toFixed(2)}. ${trainBest - trainMed > 0.8 ? "A gap that wide means the winner was mostly the luckiest setting." : "A modest gap: selection luck is not the whole story."}`,
+  `<b>Seeds.</b> Five independent runs ranged from ${pct(Math.min(...sr))} to ${pct(Math.max(...sr))}. ${Math.max(...sr) - Math.min(...sr) > 0.1 ? "Chance alone moves the result a lot." : "The result does not hinge on one lucky run."}`,
+];
+document.getElementById("body").innerHTML = `
+ <div class="lower"><div><div class="k">${L.id} · registered before the run</div><h2>${L.title}</h2><p><b>Hypothesis.</b> ${L.hypothesis}</p><p><b>Food.</b> ${L.foodText}</p>
+  <table><tr><th>Fold</th><th>Span</th><th>${B.name}</th><th>Hold</th><th>Setting chosen on training data</th><th>Result</th></tr>${O.folds.map((f, i) => `<tr><td>${i + 1}</td><td>${day(f.from)} → ${day(f.to)}</td><td class="${f.test.ret < 0 ? "no" : "ok"}">${pct(f.test.ret)}</td><td>${pct(L.bench.holdFolds[i].ret)}</td><td style="color:var(--dim);font-size:11px">${Object.entries(f.best).map(([a, b]) => a + " " + b).join(" · ")}</td><td class="${f.win ? "ok" : "no"}">${f.win ? "WIN" : "LOSS"}</td></tr>`).join("")}</table></div>
+  <div><div class="k">Gates · all four must pass</div><div class="gates">${O.gates.map((g) => `<div><span class="${g.pass ? "ok" : "no"}">${g.pass ? "✓" : "✗"}</span>${g.name}</div>`).join("")}</div>
+  <p style="margin-top:14px;font-size:13px;color:var(--dim)">Same rules for every organism: 48 settings, chosen only on data before each fold, 0.3% cost per trade, 5 seeds averaged. The last three months stay sealed until something passes every gate.</p></div></div>
+ <div class="verify"><div><div class="k">Verify · don't trust it, recompute it</div><h2>Run ${B.name} in your own browser</h2>
+  <p>Your browser downloads the same engine files the server ran and the raw market data, then runs ${B.name} through all four folds with the setting it chose and the same five seeds. If one number on this page were typed in by hand, it would not match. Nothing is sent anywhere.</p>
+  <button id="vbtn">Recompute ${L.id} · ${B.name}</button><div class="bar"><i id="vbar"></i></div><span id="vmsg" style="font:12px JetBrains Mono;color:var(--dim)">${k === "fry" ? "Fry simulates its 11 cells in full: about a minute." : "Takes a few seconds."}</span>
+  <p style="margin-top:12px;font-size:13px">Engine files, raw data and their SHA-256 hashes: <a href="data.html">Data & method →</a></p></div>
+  <div id="vout"></div></div>
+ <div class="notes" style="grid-template-columns:repeat(2,1fr)">${reading.map((r) => `<div><p>${r}</p></div>`).join("")}</div>
+ ${L.notes?.length ? `<div class="notes" style="grid-template-columns:1fr"><div style="border-color:#3a4150"><div class="k">Disclosed before registration</div><p>${L.notes.join(" ")}</p></div></div>` : ""}`;
+
+// ---------- verify in the browser ----------
+document.getElementById("vbtn").onclick = () => {
+  const btn = document.getElementById("vbtn"), bar = document.getElementById("vbar"), msg = document.getElementById("vmsg"), out = document.getElementById("vout"), t0 = Date.now();
+  btn.disabled = true; msg.textContent = "Downloading the engine and the raw data…";
+  const w = new Worker(new URL("verify-worker.js", location.href), { type: "module" });
+  w.onmessage = ({ data }) => {
+    if (data.progress != null) { bar.style.width = data.progress * 100 + "%"; msg.textContent = `Running in your browser… ${Math.round(data.progress * 100)}%`; return; }
+    w.terminate(); btn.disabled = false;
+    if (data.error) { msg.textContent = "Could not run: " + data.error; return; }
+    const v = data.done, ok = v.stitched.match && v.folds.every((f) => f.match);
+    msg.textContent = `Done in ${((Date.now() - t0) / 1000).toFixed(1)} s on your machine.`;
+    out.innerHTML = `<table><tr><th>Fold</th><th>Published</th><th>Your browser</th><th></th></tr>${v.folds.map((f, i) => `<tr><td>${i + 1} · ${day(f.from)}</td><td>${pct(f.published)}</td><td>${pct(f.recomputed)}</td><td class="${f.match ? "ok" : "no"}">${f.match ? "✓ match" : "✗ differs"}</td></tr>`).join("")}
+      <tr><td><b>All folds</b></td><td>${pct(v.stitched.published.ret)} · Sharpe ${v.stitched.published.sharpe.toFixed(2)}</td><td>${pct(v.stitched.recomputed.ret)} · Sharpe ${v.stitched.recomputed.sharpe.toFixed(2)}</td><td class="${v.stitched.match ? "ok" : "no"}">${v.stitched.match ? "✓ match" : "✗ differs"}</td></tr></table>
+      <p class="vsum ${ok ? "ok" : "no"}">${ok ? "Every number reproduced exactly." : "Something did not reproduce. Please tell us."}</p>`;
+  };
+  w.postMessage({ exp: L.id, org: k });
+};
+
+// ---------- the brain canvas ----------
+const brain = document.getElementById("brain"), cv = document.getElementById("cv"), x = cv.getContext("2d");
+let W, H2, G, dish = null;
+const innerMax = Math.max(1e-9, ...O.frames.flatMap((f) => f.inner.map(Math.abs)));
+function layout() {
+  const dpr = devicePixelRatio || 1; W = brain.clientWidth; H2 = brain.clientHeight; cv.width = W * dpr; cv.height = H2 * dpr; x.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const side = W < 700 ? 92 : 200, top = 48, rows = SY.length + 1, rh = (H2 - top - 24) / rows, R = Math.min(H2 * 0.36, (W - side * 2) * 0.36), cx = W / 2, cy = H2 / 2 + 10;
+  // nodes follow the row order top to bottom, alternating sides, so food lines and capital lines barely cross
+  G = { side, rh, R, cx, cy, y: (j) => top + rh * (j + 0.5), node: SY.map((_, j) => { const th = (Math.PI * (j + 0.5)) / SY.length, sd = j % 2 ? 1 : -1; return { x: cx + sd * R * Math.sin(th) * 0.9, y: cy - R * Math.cos(th) }; }) };
+  {
+    // every dish is fed the same frame as the rest of the page: real food per asset and the organism's recorded inner state
+    const feed = () => ({ food: O.frames[idx].food, inner: O.frames[idx].inner, innerMax, syms: SY, angles: G.node.map((n) => Math.atan2(n.y - G.cy, n.x - G.cx)) });
+    if (!dish) { dish = document.createElement("div"); dish.className = "dish"; const c = document.createElement("canvas"); dish.appendChild(c); brain.appendChild(dish); mount(c, k, { seed: 5, feed, s: k === "physarum" ? 0.86 : 0.95 }); }
+    const r = R * (k === "physarum" ? 0.78 : 0.62); Object.assign(dish.style, { width: r * 2 + "px", height: r * 2 + "px", left: cx - r + "px", top: cy - r + "px" });
+  }
+}
+new ResizeObserver(layout).observe(brain);
+const curve = (a, b, c, d) => { x.beginPath(); x.moveTo(a, b); const m = (a + c) / 2; x.bezierCurveTo(m, b, m, d, c, d); };
+const onCurve = (a, b, c, d, u) => { const m = (a + c) / 2, mt = 1 - u; return [mt ** 3 * a + 3 * mt * mt * u * m + 3 * mt * u * u * m + u ** 3 * c, mt ** 3 * b + 3 * mt * mt * u * b + 3 * mt * u * u * d + u ** 3 * d]; };
+let t = 0;
+function frame() {
+  t++; x.clearRect(0, 0, W, H2); const f = O.frames[idx], { side, R, cx, cy } = G, inX = side, outX = W - side, hex = B.color, rgba = (a) => hex + Math.round(Math.max(0, Math.min(1, a)) * 255).toString(16).padStart(2, "0");
+  x.font = "10px JetBrains Mono"; x.textBaseline = "middle";
+  const cash = 1 - f.w.reduce((a, b) => a + b, 0), fmax = Math.max(1, ...f.food.map(Math.abs));
+  SY.forEach((s, j) => {
+    const y = G.y(j), fv = f.food[j], w = f.w[j], bwmax = side - 110;
+    x.fillStyle = "#c9ced8"; x.textAlign = "left"; x.fillText(s, 22, y);
+    const bw = Math.min(1, Math.abs(fv) / 3) * bwmax; x.fillStyle = fv > 0 ? rgba(0.85) : "#3a3f4a"; x.fillRect(side - 16 - bw, y - 3, bw, 6);
+    x.fillStyle = fv > 0 ? "#e7e9ee" : "#5d6370"; x.textAlign = "right"; x.fillText(fv.toFixed(2), side - 20 - bwmax, y);
+    x.textAlign = "right"; x.fillStyle = "#c9ced8"; x.fillText(s, W - 22, y);
+    x.fillStyle = rgba(0.85); x.fillRect(outX + 16, y - 3, w * bwmax, 6); x.textAlign = "left"; x.fillStyle = w > 0.005 ? "#e7e9ee" : "#5d6370"; x.fillText((w * 100).toFixed(1) + "%", outX + 22 + bwmax, y);
+  });
+  const yc = G.y(SY.length); x.textAlign = "right"; x.fillStyle = "#9aa1ad"; x.fillText("CASH", W - 22, yc);
+  x.fillStyle = "#6b7280"; x.fillRect(outX + 16, yc - 3, cash * (side - 110), 6); x.textAlign = "left"; x.fillStyle = "#e7e9ee"; x.fillText((cash * 100).toFixed(1) + "%", outX + 22 + (side - 110), yc);
+  SY.forEach((s, j) => {
+    const n = G.node[j], fv = f.food[j], w = f.w[j], iv = f.inner[j] / innerMax;
+    x.strokeStyle = fv > 0 ? rgba(0.1 + Math.min(0.5, fv / 6)) : "#1a1e27"; x.lineWidth = fv > 0 ? 1 + fv / 2 : 0.7; curve(inX, G.y(j), n.x, n.y); x.stroke();
+    if (fv > 0) for (let q = 0; q < Math.ceil(fv); q++) { const [px, py] = onCurve(inX, G.y(j), n.x, n.y, (t * 0.004 + q / Math.ceil(fv) + j * 0.09) % 1); x.fillStyle = hex; x.fillRect(px - 1.2, py - 1.2, 2.4, 2.4); }
+    if (w > 0.004) { x.strokeStyle = rgba(0.25 + w); x.lineWidth = 0.6 + w * 10; curve(n.x, n.y, outX, G.y(j)); x.stroke(); }
+    // spoke: the organism's own state toward this asset (see INNER); negative values (worm L) drawn dashed
+    const a = Math.abs(iv);
+    if (a > 0.02 && k !== "physarum") { x.setLineDash(iv < 0 ? [3, 4] : []); x.strokeStyle = iv < 0 ? "#6b7280" : rgba(0.3 + a * 0.6); x.lineWidth = 0.8 + a * 6; x.beginPath(); x.moveTo(cx, cy); x.lineTo(n.x, n.y); x.stroke(); x.setLineDash([]);
+      if (iv > 0) { const u = (t * 0.008 + j * 0.13) % 1; x.fillStyle = "#fff"; x.beginPath(); x.arc(cx + (n.x - cx) * u, cy + (n.y - cy) * u, 1.4 + a * 1.5, 0, 7); x.fill(); } }
+    x.fillStyle = "#0b0d12"; x.strokeStyle = a > 0.02 && iv > 0 ? hex : "#3a3f4a"; x.lineWidth = 1.4; x.beginPath(); x.arc(n.x, n.y, 15, 0, 7); x.fill(); x.stroke();
+    x.fillStyle = "#e7e9ee"; x.textAlign = "center"; x.font = "8px JetBrains Mono"; x.fillText(s, n.x, n.y - 3); x.fillStyle = "#8b919c"; x.fillText((+f.inner[j]).toFixed(Math.abs(f.inner[j]) >= 10 ? 0 : 2), n.x, n.y + 6);
+  });
+  if (playing && t % 3 === 0) { idx = (idx + 1) % N; tick(); }
+  requestAnimationFrame(frame);
+}
+
+// ---------- timeline ----------
+const tl = document.getElementById("tl"), tx = tl.getContext("2d");
+function drawTL() {
+  const dpr = devicePixelRatio || 1, w = tl.clientWidth, h = tl.clientHeight; tl.width = w * dpr; tl.height = h * dpr; tx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const all = [...L.eq.hold, ...L.eq[k]], lo = Math.min(...all), hi = Math.max(...all), X = (i) => (i / (N - 1)) * w, Y = (v) => h - 5 - ((v - lo) / (hi - lo)) * (h - 10);
+  [["hold", "#8b8f98"], [k, B.color]].forEach(([kk, c]) => { tx.strokeStyle = c; tx.lineWidth = kk === k ? 1.6 : 1; tx.beginPath(); L.eq[kk].forEach((v, i) => (i ? tx.lineTo(X(i), Y(v)) : tx.moveTo(X(i), Y(v)))); tx.stroke(); });
+  tx.fillStyle = "#e7e9ee"; tx.fillRect(X(idx) - 0.5, 0, 1.5, h);
+}
+function tick() { document.getElementById("date").textContent = `${day(L.t[idx])} · fold ${L.fold[idx]}/4 · ${B.name} ${pct(L.eq[k][idx] - 1)} · hold ${pct(L.eq.hold[idx] - 1)}`; drawTL(); }
+const scrub = (e) => { const r = tl.getBoundingClientRect(); idx = Math.max(0, Math.min(N - 1, Math.round(((e.clientX - r.left) / r.width) * (N - 1)))); tick(); };
+tl.onpointerdown = (e) => { scrub(e); tl.onpointermove = scrub; }; addEventListener("pointerup", () => (tl.onpointermove = null));
+document.getElementById("play").onclick = (e) => { playing = !playing; e.currentTarget.textContent = playing ? "❚❚" : "▶"; };
+addEventListener("resize", drawTL); layout(); tick(); frame();
+</script></body></html>

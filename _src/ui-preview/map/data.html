@@ -1,0 +1,81 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PETRI Data</title>
+<meta property="og:image" content="https://neurarh.trade/og.png"><meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07080b;--line:#1c2029;--ink:#e7e9ee;--dim:#7d8492;--acc:#e8c21a}
+*{box-sizing:border-box;margin:0}body{background:var(--bg);color:var(--ink);font:15px/1.6 "Inter Tight",system-ui,sans-serif}
+header{display:flex;align-items:center;gap:18px;padding:14px 22px;border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:8px;font-weight:600;font-size:17px;letter-spacing:-.01em;color:var(--ink);text-decoration:none}.logo i{width:12px;height:12px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center}.logo i:after{content:"";width:4px;height:4px;border-radius:50%;background:var(--ink)}
+header nav{display:flex;gap:16px;margin-left:auto}header nav a{color:var(--dim);text-decoration:none;font:12px "JetBrains Mono"}header nav a:hover,header nav a.on{color:var(--ink)}
+main{max-width:1040px;margin:0 auto;padding:44px 22px 80px}
+h1{font-size:40px;font-weight:600;letter-spacing:-.03em;line-height:1.1}h2{font-size:22px;font-weight:600;letter-spacing:-.02em;margin:54px 0 10px}
+.lead{color:#b9bec9;font-size:17px;max-width:720px;margin-top:14px}p{color:#b9bec9;max-width:760px;margin:8px 0}
+.k{font:10px "JetBrains Mono";letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
+.src{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:16px}.src>div{border:1px solid var(--line);border-radius:10px;padding:18px}
+.src h3{font-size:16px;font-weight:600;margin:6px 0}.src p{font-size:14px}
+a{color:var(--ink)}code,.mono{font:12.5px "JetBrains Mono"}
+table{width:100%;border-collapse:collapse;font:12px "JetBrains Mono";margin-top:12px}th{color:var(--dim);font-weight:400;text-align:left;padding:7px 8px;border-bottom:1px solid var(--line)}td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top;word-break:break-all}#ledger td:nth-child(-n+2){white-space:nowrap;word-break:normal}
+.ok{color:#7ee2a8}.no{color:#ff8a73}.dim{color:var(--dim)}
+button{all:unset;cursor:pointer;font:500 13px "JetBrains Mono";padding:9px 14px;border-radius:8px;background:var(--ink);color:#000;margin-top:12px}
+pre{background:#0d0f14;border:1px solid var(--line);border-radius:10px;padding:16px;font:12.5px/1.7 "JetBrains Mono";overflow-x:auto;margin-top:12px;color:#c9ced8}
+.limits li{color:#b9bec9;margin:8px 0 0 18px;max-width:760px}
+@media(max-width:760px){.src{grid-template-columns:1fr}h1{font-size:30px}td:nth-child(3){display:none}}
+</style></head><body>
+<header><a class="logo" href="index.html"><i></i>PETRI</a><nav><a href="index.html">Map</a><a href="live.html">Live</a><a href="data.html" class="on">Data & method</a></nav></header>
+<main>
+<div class="k">Data & method</div>
+<h1>Every number here can be traced, downloaded and recomputed.</h1>
+<p class="lead">No figure on this site is typed in by hand. The organisms read public data, the engine that runs them is published byte for byte, and any visitor can rerun it in their own browser and get the same result to the last digit.</p>
+
+<h2>Where the inputs come from</h2>
+<div class="src">
+ <div><div class="k">Prices</div><h3>Hourly closes of the 11 underlying assets</h3><p>Yahoo Finance chart API: ETH-USD, SPY, QQQ, NVDA, TSLA, AAPL, MSFT, AMZN, GOOGL, META, COIN. The tokens on Robinhood Chain track these prices; the backtest trades the underlying price, not the token's pool price. One clock: US market hours.</p><p class="mono"><a href="raw/hist-1h.json">raw/hist-1h.json</a></p></div>
+ <div><div class="k">On-chain flow · EXP-002</div><h3>Every swap in the 11 Uniswap v3 pools</h3><p>All <code>Swap</code> events from Robinhood Chain (chain id 4663), block 1 to the start of the sealed holdout, summed per hour into USDG bought and sold. Pools listed below, each linked to the explorer.</p><p class="mono"><a href="raw/flow-1h.json">raw/flow-1h.json</a></p></div>
+ <div><div class="k">News · EXP-003</div><h3>Daily news tone from GDELT</h3><p>GDELT 2.0 DOC API, <code>timelinetone</code>, English sources: the average sentiment of every matching article per day. The exact query for each asset is inside the file.</p><p class="mono"><a href="raw/news-1d.json">raw/news-1d.json</a></p></div>
+ <div><div class="k">Brains</div><h3>The worm's 302 neurons, the fry's 11 cells</h3><p>The worm answers come from running the C.&nbsp;elegans wiring diagram (Cook et al. 2019) as a spiking network for every smell level and memory level, stored as a table the engine replays. The fry circuit is simulated in full at every bar, inside the engine file below.</p><p class="mono"><a href="raw/league/worm-table.json">raw/league/worm-table.json</a></p></div>
+</div>
+<table id="pools"><tr><th>Asset</th><th>Pool on Robinhood Chain</th><th>Token</th></tr></table>
+
+<h2>Recompute it yourself</h2>
+<p>Open any organism on the <a href="index.html">map</a> and press <b>Recompute</b>. Your browser loads the engine files and raw data listed below, runs the organism through the four test folds with the setting it chose and the same five seeds, and compares every fold with the published number.</p>
+<p id="repo" class="dim">With Node.js you can also run the whole league from the source code, which will be linked here.</p>
+
+<h2>Files and fingerprints</h2>
+<p>SHA-256 of every engine and data file this site serves. Press the button to download each file and hash it in your browser; a single changed byte changes the hash.</p>
+<button id="hash">Check every hash in my browser</button> <span id="hmsg" class="mono dim"></span>
+<table id="files"><tr><th>File</th><th>Size</th><th>SHA-256</th><th></th></tr></table>
+
+<h2>Registered before the run</h2>
+<p>Each experiment's hypothesis, organisms, budget and gates are written to the ledger before it runs, so the target cannot move after the result is known. The last three months of data are sealed and stay unopened until an experiment passes all four gates on the rest.</p>
+<table id="ledger"><tr><th>Experiment</th><th>Registered (UTC)</th><th>Hypothesis</th></tr></table>
+<p class="mono" style="margin-top:12px">Ledger: <a href="raw/lab/ledger.json">raw/lab/ledger.json</a> · SHA-256 <span id="lhash">…</span></p>
+<p id="anchor" class="dim">Not yet anchored on-chain: the ledger's hash will be written into a Robinhood Chain transaction so later registrations can be checked against a public timestamp.</p>
+
+<h2>What this does not prove</h2>
+<ul class="limits">
+ <li>These are backtests on past data with paper money, not live trading results. The <a href="live.html">live forward test</a> also uses paper money.</li>
+ <li>Registration times before the on-chain anchor are recorded by us; only registrations after it can be checked against a public timestamp.</li>
+ <li>EXP-002 has about five weeks of on-chain data (swaps in these pools began on 8 July 2026; SPY, QQQ, META and COIN had none before the holdout). Its numbers are too short to mean anything.</li>
+ <li>The worm's brain is replayed from a precomputed table (one entry per smell, memory and seed) rather than simulated at every bar; the table itself is the output of the full 302-neuron simulation.</li>
+ <li>No experiment has passed all four gates yet, so the holdout is still sealed and nothing here claims an edge.</li>
+</ul>
+</main>
+<script type="module">
+const M = await (await fetch("raw/manifest.json")).json(), A = await (await fetch("raw/assets.json")).json(), Lg = await (await fetch("raw/lab/ledger.json")).json();
+const site = await fetch("site.json").then((r) => (r.ok ? r.json() : {}), () => ({}));
+const kb = (b) => (b > 1e6 ? (b / 1e6).toFixed(1) + " MB" : (b / 1e3).toFixed(0) + " KB"), ex = A.chain.explorer;
+document.getElementById("pools").insertAdjacentHTML("beforeend", A.assets.map((a) => `<tr><td>${a.sym}</td><td><a href="${ex}/address/${a.pool}" target="_blank" rel="noopener">${a.pool}</a></td><td><a href="${ex}/token/${a.token}" target="_blank" rel="noopener">${a.token}</a></td></tr>`).join(""));
+document.getElementById("files").insertAdjacentHTML("beforeend", M.files.map((f, i) => `<tr><td><a href="${f.path}">${f.path}</a></td><td>${kb(f.bytes)}</td><td>${f.sha256}</td><td id="h${i}"></td></tr>`).join(""));
+document.getElementById("ledger").insertAdjacentHTML("beforeend", Lg.registered.map((e) => `<tr><td>${e.id}</td><td>${e.at.replace("T", " ").slice(0, 19)}</td><td style="word-break:normal">${e.hypothesis}</td></tr>`).join(""));
+const sha = async (buf) => [...new Uint8Array(await crypto.subtle.digest("SHA-256", buf))].map((b) => b.toString(16).padStart(2, "0")).join("");
+document.getElementById("lhash").textContent = await sha(await (await fetch("raw/lab/ledger.json")).arrayBuffer());
+if (site.anchor) document.getElementById("anchor").innerHTML = `Anchored on Robinhood Chain: transaction <a href="${ex}/tx/${site.anchor.tx}" target="_blank" rel="noopener">${site.anchor.tx.slice(0, 18)}…</a> carries ledger hash <span class="mono">${site.anchor.hash}</span> (${site.anchor.at}).`;
+if (site.repo) document.getElementById("repo").innerHTML = `With Node.js you can rerun the whole league from the <a href="${site.repo}" target="_blank" rel="noopener">source code</a>: <code>node server/league/run.mjs EXP-004</code> writes the same results this site shows.`;
+document.getElementById("hash").onclick = async () => {
+  let ok = 0; const msg = document.getElementById("hmsg");
+  for (const [i, f] of M.files.entries()) { msg.textContent = `hashing ${i + 1}/${M.files.length}…`; const h = await sha(await (await fetch(f.path, { cache: "no-store" })).arrayBuffer()), good = h === f.sha256; ok += good; document.getElementById("h" + i).innerHTML = good ? '<span class="ok">✓</span>' : '<span class="no">✗</span>'; }
+  msg.innerHTML = ok === M.files.length ? `<span class="ok">all ${ok} files match</span>` : `<span class="no">${M.files.length - ok} file(s) differ</span>`;
+};
+</script>
+</body></html>

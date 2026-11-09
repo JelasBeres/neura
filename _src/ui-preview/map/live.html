@@ -1,0 +1,73 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PETRI Live</title>
+<meta property="og:image" content="https://neurarh.trade/og.png"><meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#07080b;--line:#1c2029;--ink:#e7e9ee;--dim:#7d8492;--acc:#e8c21a}
+*{box-sizing:border-box;margin:0}body{background:var(--bg);color:var(--ink);font:15px/1.6 "Inter Tight",system-ui,sans-serif}
+header{display:flex;align-items:center;gap:18px;padding:14px 22px;border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:8px;font-weight:600;font-size:17px;letter-spacing:-.01em;color:var(--ink);text-decoration:none}.logo i{width:12px;height:12px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center}.logo i:after{content:"";width:4px;height:4px;border-radius:50%;background:var(--ink)}
+header nav{display:flex;gap:16px;margin-left:auto}header nav a{color:var(--dim);text-decoration:none;font:12px "JetBrains Mono"}header nav a:hover,header nav a.on{color:var(--ink)}
+main{max-width:1040px;margin:0 auto;padding:44px 22px 80px}
+h1{font-size:40px;font-weight:600;letter-spacing:-.03em;line-height:1.1}h2{font-size:22px;font-weight:600;letter-spacing:-.02em;margin:54px 0 10px}
+.lead{color:#b9bec9;font-size:17px;max-width:720px;margin-top:14px}p{color:#b9bec9;max-width:760px;margin:8px 0}
+.k{font:10px "JetBrains Mono";letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
+.src{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:16px}.src>div{border:1px solid var(--line);border-radius:10px;padding:18px}
+.src h3{font-size:16px;font-weight:600;margin:6px 0}.src p{font-size:14px}
+a{color:var(--ink)}code,.mono{font:12.5px "JetBrains Mono"}
+table{width:100%;border-collapse:collapse;font:12px "JetBrains Mono";margin-top:12px}th{color:var(--dim);font-weight:400;text-align:left;padding:7px 8px;border-bottom:1px solid var(--line)}td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:top;word-break:break-all}#ledger td:nth-child(-n+2){white-space:nowrap;word-break:normal}
+.ok{color:#7ee2a8}.no{color:#ff8a73}.dim{color:var(--dim)}
+button{all:unset;cursor:pointer;font:500 13px "JetBrains Mono";padding:9px 14px;border-radius:8px;background:var(--ink);color:#000;margin-top:12px}
+pre{background:#0d0f14;border:1px solid var(--line);border-radius:10px;padding:16px;font:12.5px/1.7 "JetBrains Mono";overflow-x:auto;margin-top:12px;color:#c9ced8}
+.limits li{color:#b9bec9;margin:8px 0 0 18px;max-width:760px}
+@media(max-width:760px){.src{grid-template-columns:1fr}h1{font-size:30px}td:nth-child(3){display:none}}
+.tabs{display:flex;gap:6px;margin-top:22px}.tabs a{font:12px "JetBrains Mono";padding:6px 10px;border-radius:6px;border:1px solid var(--line);color:var(--dim);text-decoration:none;cursor:pointer}.tabs a.on{color:var(--ink);border-color:#3a4150;background:#151922}
+#chart{width:100%;height:340px;display:block;margin-top:14px;border:1px solid var(--line);border-radius:10px;background:#0a0b0f}
+.state{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:26px;border:1px solid var(--line);border-radius:10px}.state div{padding:14px 16px;border-right:1px solid var(--line)}.state div:last-child{border-right:0}.state b{display:block;font:500 18px "JetBrains Mono"}.state span{font:10px "JetBrains Mono";letter-spacing:.12em;color:var(--dim)}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:8px}
+@media(max-width:760px){.state{grid-template-columns:repeat(2,1fr)}}
+</style></head><body>
+</head><body>
+<header><a class="logo" href="index.html"><i></i>PETRI</a><nav><a href="index.html">Map</a><a href="live.html" class="on">Live</a><a href="data.html">Data & method</a></nav></header>
+<main>
+<div class="k">LIVE-001 · forward test</div>
+<h1>The future can't be fitted.</h1>
+<p class="lead">A backtest can always be tuned to look good. This can't: every organism was locked to its setting <b id="reg"></b>, before any of these prices existed, and now trades forward hour by hour with paper money. Recomputed from its first bar every hour; nothing is ever re-tuned.</p>
+<section class="state" id="state"></section>
+<div class="tabs" id="tabs"></div>
+<canvas id="chart"></canvas>
+<table id="tbl"></table>
+<h2>Hash chain</h2>
+<p>Every hourly update adds a link whose SHA-256 covers the previous link and this hour's numbers plus the hash of the exact prices used. Rewriting any past hour would break every link after it. Save a hash today and check it later.</p>
+<p class="mono"><a href="live/chain.json">live/chain.json</a> · prices used: <a href="live/hist-live.json">live/hist-live.json</a> · numbers: <a href="live/live.json">live/live.json</a></p>
+<table id="chain"><tr><th>Updated (UTC)</th><th>Last bar</th><th>SHA-256</th></tr></table>
+<h2>Recompute it</h2>
+<p>The numbers come from the same engine files as the backtest (<a href="data.html">Data & method</a>). Run <code>server/live/forward.mjs</code> from the source with <code>live/hist-live.json</code> and you get the same live.json.</p>
+</main>
+<script type="module">
+import { BOOKS, pct, day } from "./common.js";
+const L = await fetch("live/live.json", { cache: "no-store" }).then((r) => (r.ok ? r.json() : null), () => null), C = await fetch("live/chain.json", { cache: "no-store" }).then((r) => (r.ok ? r.json() : []), () => []);
+const fmt = (s) => new Date(s * 1000).toISOString().replace("T", " ").slice(0, 16);
+const st = document.getElementById("state");
+if (!L) { st.innerHTML = `<div style="grid-column:1/-1"><b>Starting</b><span>THE FIRST UPDATE HAS NOT RUN YET</span></div>`; }
+else {
+  document.getElementById("reg").textContent = "on " + L.registeredAt.replace("T", " ").slice(0, 16) + " UTC";
+  st.innerHTML = [[L.registeredAt.slice(0, 10), "REGISTERED"], [L.waiting ? "—" : fmt(L.firstBar), "FIRST BAR (UTC)"], [L.bars, "HOURLY BARS SO FAR"], [L.waiting ? "—" : pct(L.hold.ret), "HOLD SINCE START"]].map(([a, b]) => `<div><b>${a}</b><span>${b}</span></div>`).join("");
+  if (L.waiting) document.getElementById("tbl").innerHTML = `<tr><td class="dim">Waiting for the first market bar after registration. The first numbers appear after the next US market hour closes.</td></tr>`;
+  else {
+    const exps = [...new Set(L.books.map((b) => b.exp))]; let cur = exps[1] || exps[0];
+    const tabs = document.getElementById("tabs"), cv = document.getElementById("chart"), x = cv.getContext("2d");
+    const draw = () => {
+      tabs.innerHTML = exps.map((e) => `<a class="${e === cur ? "on" : ""}" data-e="${e}">${e}</a>`).join(""); tabs.querySelectorAll("a").forEach((a) => (a.onclick = () => ((cur = a.dataset.e), draw())));
+      const B = L.books.filter((b) => b.exp === cur), dpr = devicePixelRatio || 1, w = cv.clientWidth, h = cv.clientHeight; cv.width = w * dpr; cv.height = h * dpr; x.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const all = [...L.hold.curve, ...B.flatMap((b) => b.curve)], lo = Math.min(...all), hi = Math.max(...all), N = L.hold.curve.length, X = (i) => 40 + (i / Math.max(1, N - 1)) * (w - 60), Y = (v) => h - 20 - ((v - lo) / (hi - lo || 1)) * (h - 40);
+      x.strokeStyle = "#1c2029"; x.beginPath(); x.moveTo(40, Y(1)); x.lineTo(w - 20, Y(1)); x.stroke(); x.fillStyle = "#7d8492"; x.font = "10px JetBrains Mono"; x.fillText("start", 4, Y(1) + 3);
+      [["hold", L.hold.curve], ...B.map((b) => [b.org, b.curve])].forEach(([k, c]) => { x.strokeStyle = BOOKS[k].color; x.lineWidth = k === "hold" ? 1 : 1.6; x.setLineDash(k === "hold" ? [4, 4] : []); x.beginPath(); c.forEach((v, i) => (i ? x.lineTo(X(i), Y(v)) : x.moveTo(X(i), Y(v)))); x.stroke(); }); x.setLineDash([]);
+      document.getElementById("tbl").innerHTML = `<tr><th>Book · ${cur}</th><th>Return</th><th>Sharpe</th><th>Max drawdown</th><th>Vs hold</th></tr>` + [{ org: "hold", ...L.hold }, ...B].sort((a, b) => b.ret - a.ret).map((b) => `<tr><td><span class="dot" style="background:${BOOKS[b.org].color}"></span>${BOOKS[b.org].name}</td><td class="${b.ret >= 0 ? "ok" : "no"}">${pct(b.ret)}</td><td>${b.sharpe.toFixed(2)}</td><td>${(b.maxDD * 100).toFixed(1)}%</td><td>${b.org === "hold" ? "" : b.ret > L.hold.ret ? '<span class="ok">ahead</span>' : '<span class="no">behind</span>'}</td></tr>`).join("");
+    };
+    draw(); addEventListener("resize", draw);
+  }
+}
+document.getElementById("chain").insertAdjacentHTML("beforeend", C.slice(-12).reverse().map((c) => `<tr><td>${c.at.replace("T", " ").slice(0, 16)}</td><td>${c.summary.lastBar ? fmt(c.summary.lastBar) : "—"}</td><td>${c.sha256}</td></tr>`).join("") || `<tr><td class="dim" colspan="3">No links yet.</td></tr>`);
+</script>
+</body></html>

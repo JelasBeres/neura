@@ -1,0 +1,18 @@
+{
+  "chain": { "id": 4663, "rpc": "https://rpc.mainnet.chain.robinhood.com", "explorer": "https://robinhoodchain.blockscout.com" },
+  "uniswap": { "factory": "0x1f7d7550b1b028f7571e69a784071f0205fd2efa", "quoterV2": "0x33e885ed0ec9bf04ecfb19341582aadcb4c8a9e7", "source": "https://developers.uniswap.org/docs/protocols/v3/deployments/v3-robinhood-chain-deployments" },
+  "usdg": { "address": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168", "decimals": 6 },
+  "assets": [
+    { "sym": "ETH",   "token": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73", "fee": 100,  "pool": "0x52e65B17fB6E5BA00Ed806f37Afcd2DaA50271Ca", "news": "ETH-USD", "scent": ["AWC", "AFD"] },
+    { "sym": "SPY",   "token": "0x117cc2133c37B721F49dE2A7a74833232B3B4C0C", "fee": 500,  "pool": "0xa7Bb1AC63BBaB0C44316E6c8C455213441689167", "news": "SPY",     "scent": ["ASG", "BAG"] },
+    { "sym": "QQQ",   "token": "0xD5f3879160bc7c32ebb4dC785F8a4F505888de68", "fee": 500,  "pool": "0xD60A5d14dB690B7Afad71F76B108071D7175597d", "news": "QQQ",     "scent": ["ADL", "BAG"] },
+    { "sym": "NVDA",  "token": "0xd0601CE157Db5bdC3162BbaC2a2C8aF5320D9EEC", "fee": 500,  "pool": "0xd4EB21209C4D6093f80B5b84f5C45cc093EA14a3", "news": "NVDA",    "scent": ["ADF"] },
+    { "sym": "TSLA",  "token": "0x322F0929c4625eD5bAd873c95208D54E1c003b2d", "fee": 3000, "pool": "0xf4ACdAEEB7022862A763C9B1B885e11191c889E3", "news": "TSLA",    "scent": ["ASG", "ADF"] },
+    { "sym": "AAPL",  "token": "0xaF3D76f1834A1d425780943C99Ea8A608f8a93f9", "fee": 500,  "pool": "0xAae0d815EE56e4092a5E5C2911E676Fea50B2d6D", "news": "AAPL",    "scent": ["ASI", "ADF"] },
+    { "sym": "MSFT",  "token": "0xe93237C50D904957Cf27E7B1133b510C669c2e74", "fee": 3000, "pool": "0xeb60bCD1D920ad6E102690CCFC6fB488899E1510", "news": "MSFT",    "scent": ["ASK", "AFD"] },
+    { "sym": "AMZN",  "token": "0x12f190a9F9d7D37a250758b26824B97CE941bF54", "fee": 3000, "pool": "0x8AC92DA74AB5F3b1d024Dc1943Ad7e15Dc4179Ef", "news": "AMZN",    "scent": ["AWC", "ADF"] },
+    { "sym": "GOOGL", "token": "0x2e0847E8910a9732eB3fb1bb4b70a580ADAD4FE3", "fee": 500,  "pool": "0x34D0dC122CF9A8Eb296fC5e0D3A233625D7d19b7", "news": "GOOGL",   "scent": ["ASK", "BAG"] },
+    { "sym": "META",  "token": "0xc0D6457C16Cc70d6790Dd43521C899C87ce02f35", "fee": 3000, "pool": "0x107a7Cb40d8665360ba10E59471Af06150A50922", "news": "META",    "scent": ["AWC", "BAG"] },
+    { "sym": "COIN",  "token": "0x6330D8C3178a418788dF01a47479c0ce7CCF450b", "fee": 500,  "pool": "0x3a6eC0aa6C702323414d449B5F60f4B742A82dED", "news": "COIN",    "scent": ["ADL", "AFD"] }
+  ]
+}

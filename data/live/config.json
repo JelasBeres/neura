@@ -1,0 +1,200 @@
+{
+ "id": "LIVE-001",
+ "registeredAt": "2026-11-09T16:47:29.879Z",
+ "start": 1794242849,
+ "seeds": [
+  1,
+  2,
+  3,
+  4,
+  5
+ ],
+ "books": [
+  {
+   "exp": "EXP-001",
+   "org": "physarum",
+   "p": {
+    "look": 14,
+    "gamma": 0.12,
+    "rest": 0.3,
+    "every": 35,
+    "mu": 1.8,
+    "g0": 1
+   }
+  },
+  {
+   "exp": "EXP-001",
+   "org": "worm",
+   "p": {
+    "look": 140,
+    "scale": 1,
+    "buy": 0.3,
+    "halfLife": 24
+   }
+  },
+  {
+   "exp": "EXP-001",
+   "org": "fry",
+   "p": {
+    "look": 70,
+    "scale": 1,
+    "halfLife": 6,
+    "buyHz": 20
+   }
+  },
+  {
+   "exp": "EXP-001",
+   "org": "ant",
+   "p": {
+    "look": 70,
+    "rho": 0.1,
+    "beta": 3,
+    "every": 7
+   }
+  },
+  {
+   "exp": "EXP-001",
+   "org": "bee",
+   "p": {
+    "look": 14,
+    "quorum": 0.1,
+    "explore": 0.05,
+    "every": 35
+   }
+  },
+  {
+   "exp": "EXP-001",
+   "org": "ecoli",
+   "p": {
+    "look": 140,
+    "mem": 0.5,
+    "pHigh": 0.15,
+    "every": 35
+   }
+  },
+  {
+   "exp": "EXP-004",
+   "org": "physarum",
+   "p": {
+    "look": 35,
+    "gamma": 0.12,
+    "rest": 0.05,
+    "every": 35,
+    "mu": 1.8,
+    "g0": 1
+   }
+  },
+  {
+   "exp": "EXP-004",
+   "org": "worm",
+   "p": {
+    "look": 35,
+    "scale": 1,
+    "buy": 0.3,
+    "halfLife": 6
+   }
+  },
+  {
+   "exp": "EXP-004",
+   "org": "fry",
+   "p": {
+    "look": 14,
+    "scale": 4,
+    "halfLife": 6,
+    "buyHz": 20
+   }
+  },
+  {
+   "exp": "EXP-004",
+   "org": "ant",
+   "p": {
+    "look": 140,
+    "rho": 0.3,
+    "beta": 1,
+    "every": 35
+   }
+  },
+  {
+   "exp": "EXP-004",
+   "org": "bee",
+   "p": {
+    "look": 35,
+    "quorum": 0.1,
+    "explore": 0.05,
+    "every": 35
+   }
+  },
+  {
+   "exp": "EXP-004",
+   "org": "ecoli",
+   "p": {
+    "look": 140,
+    "mem": 0.95,
+    "pHigh": 0.4,
+    "every": 35
+   }
+  },
+  {
+   "exp": "EXP-005",
+   "org": "physarum",
+   "p": {
+    "look": 14,
+    "gamma": 0.12,
+    "rest": 0.05,
+    "every": 35,
+    "mu": 1.8,
+    "g0": 1
+   }
+  },
+  {
+   "exp": "EXP-005",
+   "org": "worm",
+   "p": {
+    "look": 140,
+    "scale": 1,
+    "buy": 0.5,
+    "halfLife": 24
+   }
+  },
+  {
+   "exp": "EXP-005",
+   "org": "fry",
+   "p": {
+    "look": 14,
+    "scale": 4,
+    "halfLife": 6,
+    "buyHz": 15
+   }
+  },
+  {
+   "exp": "EXP-005",
+   "org": "ant",
+   "p": {
+    "look": 14,
+    "rho": 0.3,
+    "beta": 3,
+    "every": 35
+   }
+  },
+  {
+   "exp": "EXP-005",
+   "org": "bee",
+   "p": {
+    "look": 14,
+    "quorum": 0.1,
+    "explore": 0.2,
+    "every": 35
+   }
+  },
+  {
+   "exp": "EXP-005",
+   "org": "ecoli",
+   "p": {
+    "look": 140,
+    "mem": 0.8,
+    "pHigh": 0.4,
+    "every": 7
+   }
+  }
+ ]
+}
