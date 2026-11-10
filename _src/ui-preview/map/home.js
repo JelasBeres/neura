@@ -1,9 +1,10 @@
 // The scroll sections under the map: how it works, the six minds, the math, scoreboard, rules, live, proof.
 // Every number comes from a published file (data/league-summary.json, live/live.json, site.json); nothing is typed in.
-import { BOOKS, pct } from "./common.js";
+import { BOOKS, pct, SOURCES, refHTML } from "./common.js";
 const ORG = Object.keys(BOOKS).filter((k) => BOOKS[k].kind === "org");
 const S = await fetch("data/league-summary.json").then((r) => r.json());
 const site = await fetch("site.json").then((r) => (r.ok ? r.json() : {}), () => ({}));
+const REFS = await SOURCES;
 const $ = (id) => document.getElementById(id);
 const spark = (c, h, color, W = 220, H = 54) => {
   const all = [...c, ...h], lo = Math.min(...all), hi = Math.max(...all), y = (v) => H - 4 - ((v - lo) / (hi - lo || 1)) * (H - 8), x = (i, n) => (i / (n - 1)) * W;
@@ -70,12 +71,19 @@ const COMMON = [
 const eqs = (rows, src) => rows.map(([h, tex, p, s]) => `<div class="eq"><div class="eqh">${h}${SRC ? ` <a href="${SRC + (s || src)}" target="_blank" rel="noopener">source</a>` : ""}</div>${T(tex)}<p>${p}</p></div>`).join("");
 const mt = $("mathTabs");
 mt.innerHTML = ORG.map((k, i) => `<button data-k="${k}" class="${i ? "" : "on"}" style="--c:${BOOKS[k].color}">${BOOKS[k].name}</button>`).join("");
-const showMath = (k) => { $("mathBody").innerHTML = eqs(M[k].lines, M[k].src); mt.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b.dataset.k === k)); render($("mathBody")); };
+const showMath = (k) => { $("mathBody").innerHTML = eqs(M[k].lines, M[k].src); builtOn(k); mt.querySelectorAll("button").forEach((b) => b.classList.toggle("on", b.dataset.k === k)); render($("mathBody")); };
 mt.onclick = (e) => e.target.dataset.k && showMath(e.target.dataset.k);
 $("mathCommon").innerHTML = eqs(COMMON);
 const render = (root) => window.katex && root.querySelectorAll(".tex").forEach((el) => { if (!el.dataset.tex) el.dataset.tex = el.textContent; window.katex.render(el.dataset.tex, el, { displayMode: true, throwOnError: false }); });
 const katexReady = new Promise((res) => { const s = document.getElementById("katexjs"); if (window.katex) res(); else s.addEventListener("load", res); });
 showMath(ORG[0]); katexReady.then(() => { render($("mathBody")); render($("mathCommon")); });
+
+// ---------- sources: the papers behind each organism ----------
+function builtOn(k) { const m = REFS.filter((e) => e.org === k && e.role === "model"); $("builtOn").innerHTML = m.length ? "Built on: " + m.map((e) => `<a href="${e.url}" target="_blank" rel="noopener">${e.cite}</a>`).join("") : ""; }
+builtOn(ORG[0]);
+$("refs").innerHTML = ORG.map((k) => { const R = REFS.filter((e) => e.org === k), m = R.filter((e) => e.role === "model"), b = R.filter((e) => e.role !== "model");
+  return `<div class="rorg"><div class="mh"><i style="background:${BOOKS[k].color}"></i><b>${BOOKS[k].name}</b><span>${m.length} in the model</span></div>${m.map((e) => refHTML(e, site.repo)).join("")}
+  ${b.length ? `<details class="rbg"><summary>+ ${b.length} background</summary>${b.map((e) => refHTML(e, site.repo)).join("")}</details>` : ""}</div>`; }).join("");
 
 // ---------- live forward test ----------
 const lv = await fetch("live/live.json", { cache: "no-store" }).then((r) => (r.ok ? r.json() : null), () => null);

@@ -26,3 +26,9 @@ export const day = (ts) => new Date(ts * 1000).toISOString().slice(0, 10);
 export const weights = (L, k, i) => (k === "hold" ? L.bench.holdW[i] : k === "random" ? L.bench.randomW[i] : L.organisms[k]?.frames[i].w);
 export const stats = (L, k) => (k === "hold" || k === "random" ? L.bench[k] : L.organisms[k]?.stitched);
 export const status = (L, k) => (BOOKS[k].kind === "bench" ? "BENCH" : L.organisms[k] ? L.organisms[k].verdict : "PENDING");
+
+// published papers each organism is built on, checked against Crossref by server/sources/verify.mjs
+export const SOURCES = fetch(new URL("data/sources.json", import.meta.url)).then((r) => (r.ok ? r.json() : []), () => []);
+export const refHTML = (e, repo) => `<div class="ref"><a class="rt" href="${e.url}" target="_blank" rel="noopener">${e.title}</a>
+ <div class="rm">${e.cite} · ${e.venue || "Book"}${e.role === "background" ? " · background" : ""}</div><p>${e.use}</p>
+ <div class="rl">${e.doi ? `<a href="${e.url}" target="_blank" rel="noopener">DOI ${e.doi}</a>` : `<a href="${e.url}" target="_blank" rel="noopener">${e.isbn ? "ISBN " + e.isbn : "OpenLibrary"}</a>`}${e.free ? `<a href="${e.free}" target="_blank" rel="noopener">free full text</a>` : ""}${e.code && repo ? `<a href="${repo}/blob/main/${e.code.file}#L${e.code.line}" target="_blank" rel="noopener">in the code: ${e.code.file.split("/").pop()}:${e.code.line}</a>` : ""}</div></div>`;

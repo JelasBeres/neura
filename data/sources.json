@@ -1,0 +1,543 @@
+[
+ {
+  "org": "physarum",
+  "role": "model",
+  "use": "Kirchhoff pressure solve, flux and the tube adaptation law dD/dt = f(|Q|) − γD",
+  "year": 2007,
+  "code": {
+   "file": "server/solver.mjs",
+   "line": 1
+  },
+  "ok": true,
+  "kind": "article",
+  "title": "A mathematical model for adaptive transport network in path finding by true slime mold",
+  "authors": [
+   "Atsushi Tero",
+   "Ryo Kobayashi",
+   "Toshiyuki Nakagaki"
+  ],
+  "venue": "Journal of Theoretical Biology",
+  "volume": "244",
+  "page": "553-564",
+  "doi": "10.1016/j.jtbi.2006.07.015",
+  "url": "https://doi.org/10.1016/j.jtbi.2006.07.015",
+  "doiResolves": true,
+  "cite": "Tero, Kobayashi & Nakagaki 2007",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "physarum",
+  "role": "background",
+  "use": "The experiment showing a real slime mold finds the shortest path through a maze",
+  "year": 2000,
+  "ok": true,
+  "kind": "article",
+  "title": "Maze-solving by an amoeboid organism",
+  "authors": [
+   "Toshiyuki Nakagaki",
+   "Hiroyasu Yamada",
+   "Ágota Tóth"
+  ],
+  "venue": "Nature",
+  "volume": "407",
+  "page": "470-470",
+  "doi": "10.1038/35035159",
+  "url": "https://doi.org/10.1038/35035159",
+  "doiResolves": true,
+  "cite": "Nakagaki, Yamada & Tóth 2000",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "physarum",
+  "role": "background",
+  "use": "Slime mold rebuilds the Tokyo rail network; the same adaptation rule at city scale",
+  "year": 2010,
+  "ok": true,
+  "kind": "article",
+  "title": "Rules for Biologically Inspired Adaptive Network Design",
+  "authors": [
+   "Atsushi Tero",
+   "Seiji Takagi",
+   "Tetsu Saigusa",
+   "Kentaro Ito",
+   "Dan P. Bebber",
+   "Mark D. Fricker",
+   "Kenji Yumiki",
+   "Ryo Kobayashi",
+   "Toshiyuki Nakagaki"
+  ],
+  "venue": "Science",
+  "volume": "327",
+  "page": "439-442",
+  "doi": "10.1126/science.1177894",
+  "url": "https://doi.org/10.1126/science.1177894",
+  "doiResolves": true,
+  "cite": "Tero et al. 2010",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "worm",
+  "role": "model",
+  "use": "The 302-neuron wiring diagram: every chemical synapse and gap junction the worm runs on",
+  "year": 2019,
+  "code": {
+   "file": "server/league/vendor/worm-brain.mjs",
+   "line": 2
+  },
+  "ok": true,
+  "kind": "article",
+  "title": "Whole-animal connectomes of both Caenorhabditis elegans sexes",
+  "authors": [
+   "Steven J. Cook",
+   "Travis A. Jarrell",
+   "Christopher A. Brittin",
+   "Yi Wang",
+   "Adam E. Bloniarz",
+   "Maksim A. Yakovlev",
+   "Ken C. Q. Nguyen",
+   "Leo T.-H. Tang",
+   "Emily A. Bayer",
+   "Janet S. Duerr",
+   "Hannes E. Bülow",
+   "Oliver Hobert",
+   "David H. Hall",
+   "Scott W. Emmons"
+  ],
+  "venue": "Nature",
+  "volume": "571",
+  "page": "63-71",
+  "doi": "10.1038/s41586-019-1352-7",
+  "url": "https://doi.org/10.1038/s41586-019-1352-7",
+  "doiResolves": true,
+  "pubmed": "https://pubmed.ncbi.nlm.nih.gov/31270481/",
+  "free": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6889226/",
+  "cite": "Cook et al. 2019",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "worm",
+  "role": "model",
+  "use": "Leaky integrate-and-fire parameters (rest, threshold, time constants). Taken from this fruit-fly whole-brain model, not from a worm paper",
+  "year": 2024,
+  "code": {
+   "file": "server/league/vendor/worm-brain.mjs",
+   "line": 3
+  },
+  "ok": true,
+  "kind": "article",
+  "title": "A Drosophila computational brain model reveals sensorimotor processing",
+  "authors": [
+   "Philip K. Shiu",
+   "Gabriella R. Sterne",
+   "Nico Spiller",
+   "Romain Franconville",
+   "Andrea Sandoval",
+   "Joie Zhou",
+   "Neha Simha",
+   "Chan Hyuk Kang",
+   "Seongbong Yu",
+   "Jinseop S. Kim",
+   "Sven Dorkenwald",
+   "Arie Matsliah",
+   "Philipp Schlegel",
+   "Szi-chieh Yu",
+   "Claire E. McKellar",
+   "Amy Sterling",
+   "Marta Costa",
+   "Katharina Eichler",
+   "Alexander Shakeel Bates",
+   "Nils Eckstein",
+   "Jan Funke",
+   "Gregory S. X. E. Jefferis",
+   "Mala Murthy",
+   "Salil S. Bidaye",
+   "Stefanie Hampel",
+   "Andrew M. Seeds",
+   "Kristin Scott"
+  ],
+  "venue": "Nature",
+  "volume": "634",
+  "page": "210-219",
+  "doi": "10.1038/s41586-024-07763-9",
+  "url": "https://doi.org/10.1038/s41586-024-07763-9",
+  "doiResolves": true,
+  "pubmed": "https://pubmed.ncbi.nlm.nih.gov/39358519/",
+  "free": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11446845/",
+  "cite": "Shiu et al. 2024",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "worm",
+  "role": "background",
+  "use": "The first complete map of the worm's nervous system",
+  "year": 1986,
+  "ok": true,
+  "kind": "article",
+  "title": "The structure of the nervous system of the nematode Caenorhabditis elegans",
+  "authors": [
+   "John Graham White",
+   "Eileen Southgate",
+   "J. N. Thomson",
+   "Sydney Brenner"
+  ],
+  "venue": "Philosophical Transactions of the Royal Society of London. B, Biological Sciences",
+  "volume": "314",
+  "page": "1-340",
+  "doi": "10.1098/rstb.1986.0056",
+  "url": "https://doi.org/10.1098/rstb.1986.0056",
+  "doiResolves": true,
+  "cite": "White et al. 1986",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "fry",
+  "role": "model",
+  "use": "GCaMP6s calcium kinetics: rise, decay and dF/F ceiling of the simulated sensor",
+  "year": 2013,
+  "code": {
+   "file": "server/league/vendor/fry-circuit.mjs",
+   "line": 32
+  },
+  "ok": true,
+  "kind": "article",
+  "title": "Ultrasensitive fluorescent proteins for imaging neuronal activity",
+  "authors": [
+   "Tsai-Wen Chen",
+   "Trevor J. Wardill",
+   "Yi Sun",
+   "Stefan R. Pulver",
+   "Sabine L. Renninger",
+   "Amy Baohan",
+   "Eric R. Schreiter",
+   "Rex A. Kerr",
+   "Michael B. Orger",
+   "Vivek Jayaraman",
+   "Loren L. Looger",
+   "Karel Svoboda",
+   "Douglas S. Kim"
+  ],
+  "venue": "Nature",
+  "volume": "499",
+  "page": "295-300",
+  "doi": "10.1038/nature12354",
+  "url": "https://doi.org/10.1038/nature12354",
+  "doiResolves": true,
+  "pubmed": "https://pubmed.ncbi.nlm.nih.gov/23868258/",
+  "free": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3777791/",
+  "cite": "Chen et al. 2013",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "fry",
+  "role": "model",
+  "use": "Resting voltage, input resistance and rheobase of larval zebrafish neurons, which set rest and threshold",
+  "year": 2023,
+  "code": {
+   "file": "server/league/vendor/fry-circuit.mjs",
+   "line": 7
+  },
+  "ok": true,
+  "kind": "article",
+  "title": "The Nature and Origin of Synaptic Inputs to Vestibulospinal Neurons in the Larval Zebrafish",
+  "authors": [
+   "Kyla R. Hamling",
+   "Katherine Harmon",
+   "David Schoppik"
+  ],
+  "venue": "eNeuro",
+  "volume": "10",
+  "page": "ENEURO.0090-23.2023",
+  "doi": "10.1523/eneuro.0090-23.2023",
+  "url": "https://doi.org/10.1523/eneuro.0090-23.2023",
+  "doiResolves": true,
+  "pubmed": "https://pubmed.ncbi.nlm.nih.gov/37268420/",
+  "free": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10241381/",
+  "cite": "Hamling, Harmon & Schoppik 2023",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "fry",
+  "role": "model",
+  "use": "Membrane time constant of larval tectal neurons (21 ± 7 ms)",
+  "year": 2012,
+  "code": {
+   "file": "server/league/vendor/fry-circuit.mjs",
+   "line": 15
+  },
+  "ok": true,
+  "kind": "article",
+  "title": "Direction selectivity in the larval zebrafish tectum is mediated by asymmetric inhibition",
+  "authors": [
+   "Abhinav Grama",
+   "Florian Engert"
+  ],
+  "venue": "Frontiers in Neural Circuits",
+  "volume": "6",
+  "doi": "10.3389/fncir.2012.00059",
+  "url": "https://doi.org/10.3389/fncir.2012.00059",
+  "doiResolves": true,
+  "pubmed": "https://pubmed.ncbi.nlm.nih.gov/22969706/",
+  "free": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3432856/",
+  "cite": "Grama & Engert 2012",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "fry",
+  "role": "model",
+  "use": "Hebbian learning: cells that fire together strengthen their synapse",
+  "year": 1949,
+  "code": {
+   "file": "server/league/vendor/fry-circuit.mjs",
+   "line": 3
+  },
+  "ok": true,
+  "kind": "book",
+  "title": "The organization of behavior",
+  "authors": [
+   "D. O. Hebb"
+  ],
+  "firstYear": 1949,
+  "url": "https://openlibrary.org/works/OL2399623W",
+  "cite": "Hebb 1949",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "fry",
+  "role": "background",
+  "use": "Imaging nearly every neuron of a larval zebrafish brain at once",
+  "year": 2013,
+  "ok": true,
+  "kind": "article",
+  "title": "Whole-brain functional imaging at cellular resolution using light-sheet microscopy",
+  "authors": [
+   "Misha B Ahrens",
+   "Michael B Orger",
+   "Drew N Robson",
+   "Jennifer M Li",
+   "Philipp J Keller"
+  ],
+  "venue": "Nature Methods",
+  "volume": "10",
+  "page": "413-420",
+  "doi": "10.1038/nmeth.2434",
+  "url": "https://doi.org/10.1038/nmeth.2434",
+  "doiResolves": true,
+  "cite": "Ahrens et al. 2013",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "ant",
+  "role": "model",
+  "use": "Pheromone deposit, evaporation and probabilistic choice",
+  "year": 1997,
+  "code": {
+   "file": "server/league/orgs.mjs",
+   "line": 71
+  },
+  "ok": true,
+  "kind": "article",
+  "title": "Ant colony system: a cooperative learning approach to the traveling salesman problem",
+  "authors": [
+   "M. Dorigo",
+   "L.M. Gambardella"
+  ],
+  "venue": "IEEE Transactions on Evolutionary Computation",
+  "volume": "1",
+  "page": "53-66",
+  "doi": "10.1109/4235.585892",
+  "url": "https://doi.org/10.1109/4235.585892",
+  "doiResolves": true,
+  "cite": "Dorigo & Gambardella 1997",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "ant",
+  "role": "model",
+  "use": "Upper and lower bounds on pheromone so no trail dies or dominates for good",
+  "year": 2000,
+  "code": {
+   "file": "server/league/orgs.mjs",
+   "line": 71
+  },
+  "ok": true,
+  "kind": "article",
+  "title": "MAX–MIN Ant System",
+  "authors": [
+   "Thomas Stützle",
+   "Holger H. Hoos"
+  ],
+  "venue": "Future Generation Computer Systems",
+  "volume": "16",
+  "page": "889-914",
+  "doi": "10.1016/s0167-739x(00)00043-1",
+  "url": "https://doi.org/10.1016/s0167-739x(00)00043-1",
+  "note": "Crossref title reads \"– Ant System\"",
+  "doiResolves": true,
+  "cite": "Stützle & Hoos 2000",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "ant",
+  "role": "background",
+  "use": "Real ants pick the shorter bridge through pheromone alone",
+  "year": 1989,
+  "ok": true,
+  "kind": "article",
+  "title": "Self-organized shortcuts in the Argentine ant",
+  "authors": [
+   "S. Goss",
+   "S. Aron",
+   "J. L. Deneubourg",
+   "J. M. Pasteels"
+  ],
+  "venue": "Naturwissenschaften",
+  "volume": "76",
+  "page": "579-581",
+  "doi": "10.1007/bf00462870",
+  "url": "https://doi.org/10.1007/bf00462870",
+  "doiResolves": true,
+  "cite": "Goss et al. 1989",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "bee",
+  "role": "model",
+  "use": "Scouts dance in proportion to site quality; recruits follow dances",
+  "year": 1999,
+  "code": {
+   "file": "server/league/orgs.mjs",
+   "line": 90
+  },
+  "ok": true,
+  "kind": "article",
+  "title": "Group decision making in swarms of honey bees",
+  "authors": [
+   "Thomas D. Seeley",
+   "Susannah C. Buhrman"
+  ],
+  "venue": "Behavioral Ecology and Sociobiology",
+  "volume": "45",
+  "page": "19-31",
+  "doi": "10.1007/s002650050536",
+  "url": "https://doi.org/10.1007/s002650050536",
+  "doiResolves": true,
+  "cite": "Seeley & Buhrman 1999",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "bee",
+  "role": "model",
+  "use": "Dance decay and the quorum threshold that triggers a move",
+  "year": 2006,
+  "code": {
+   "file": "server/league/orgs.mjs",
+   "line": 90
+  },
+  "ok": true,
+  "kind": "article",
+  "title": "Modeling and analysis of nest-site selection by honeybee swarms: the speed and accuracy trade-off",
+  "authors": [
+   "Kevin M. Passino",
+   "Thomas D. Seeley"
+  ],
+  "venue": "Behavioral Ecology and Sociobiology",
+  "volume": "59",
+  "page": "427-442",
+  "doi": "10.1007/s00265-005-0067-y",
+  "url": "https://doi.org/10.1007/s00265-005-0067-y",
+  "doiResolves": true,
+  "cite": "Passino & Seeley 2006",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "bee",
+  "role": "background",
+  "use": "Book-length account of how swarms choose a home",
+  "year": 2010,
+  "ok": true,
+  "kind": "book",
+  "title": "Honeybee democracy",
+  "authors": [
+   "Thomas D. Seeley"
+  ],
+  "firstYear": 2010,
+  "url": "https://openlibrary.org/works/OL15883313W",
+  "cite": "Seeley 2010",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "ecoli",
+  "role": "model",
+  "use": "Run-and-tumble: swim straight, then tumble to a random new heading",
+  "year": 1972,
+  "code": {
+   "file": "server/league/orgs.mjs",
+   "line": 114
+  },
+  "ok": true,
+  "kind": "article",
+  "title": "Chemotaxis in Escherichia coli analysed by Three-dimensional Tracking",
+  "authors": [
+   "HOWARD C. BERG",
+   "DOUGLAS A. BROWN"
+  ],
+  "venue": "Nature",
+  "volume": "239",
+  "page": "500-504",
+  "doi": "10.1038/239500a0",
+  "url": "https://doi.org/10.1038/239500a0",
+  "doiResolves": true,
+  "cite": "Berg & Brown 1972",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "ecoli",
+  "role": "model",
+  "use": "Temporal comparison: the cell compares food now with a short memory of the past",
+  "year": 1972,
+  "code": {
+   "file": "server/league/orgs.mjs",
+   "line": 114
+  },
+  "ok": true,
+  "kind": "article",
+  "title": "The Gradient-Sensing Mechanism in Bacterial Chemotaxis",
+  "authors": [
+   "Robert M. Macnab",
+   "D. E. Koshland"
+  ],
+  "venue": "Proceedings of the National Academy of Sciences",
+  "volume": "69",
+  "page": "2509-2512",
+  "doi": "10.1073/pnas.69.9.2509",
+  "url": "https://doi.org/10.1073/pnas.69.9.2509",
+  "doiResolves": true,
+  "pubmed": "https://pubmed.ncbi.nlm.nih.gov/4560688/",
+  "free": "https://pmc.ncbi.nlm.nih.gov/articles/PMC426976/",
+  "cite": "Macnab & Koshland 1972",
+  "checkedAt": "2026-11-10"
+ },
+ {
+  "org": "ecoli",
+  "role": "background",
+  "use": "Why a cell that small must sense gradients over time, not space",
+  "year": 1977,
+  "ok": true,
+  "kind": "article",
+  "title": "Physics of chemoreception",
+  "authors": [
+   "H.C. Berg",
+   "E.M. Purcell"
+  ],
+  "venue": "Biophysical Journal",
+  "volume": "20",
+  "page": "193-219",
+  "doi": "10.1016/s0006-3495(77)85544-6",
+  "url": "https://doi.org/10.1016/s0006-3495(77)85544-6",
+  "doiResolves": true,
+  "pubmed": "https://pubmed.ncbi.nlm.nih.gov/911982/",
+  "free": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1473391/",
+  "cite": "Berg & Purcell 1977",
+  "checkedAt": "2026-11-10"
+ }
+]

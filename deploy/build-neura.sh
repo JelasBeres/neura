@@ -7,7 +7,7 @@ rm -rf $O; mkdir -p $O/lib $O/data $O/engine/lab $O/engine/lib $O/engine/league/
 cp $S/map/index.html $S/map/organism.html $S/map/data.html $S/map/live.html $S/map/common.js $S/map/home.js $S/map/verify-worker.js $O/
 mkdir -p $O/brand; cp $S/map/brand/* $O/brand/
 cp $S/landing/g/specimens.js $S/landing/g/worm.json $O/lib/
-node server/league/summary.mjs >/dev/null; cp $S/map/data/league-*.json $O/data/
+node server/league/summary.mjs >/dev/null; cp $S/map/data/league-*.json $O/data/; cp data/sources.json $O/data/   # papers behind each organism (server/sources/verify.mjs)
 cp deploy/site.json $O/site.json   # repo link, on-chain anchor, live test: filled in as each exists
 cp deploy/og.png $O/og.png   # link preview image (1200x630), made by rendering the live map
 # the engine: byte-for-byte the files server/league/run.mjs used (verify.mjs recomputes published results with them)

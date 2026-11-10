@@ -1,6 +1,6 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/png" sizes="32x32" href="brand/icon-32.png"><link rel="apple-touch-icon" href="brand/icon-180.png">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/png" sizes="32x32" href="brand/icon-32.png"><link rel="icon" type="image/png" sizes="64x64" href="brand/icon-64.png"><link rel="apple-touch-icon" href="brand/icon-180.png">
 <title>PETRI Data</title>
-<meta property="og:image" content="https://neurarh.trade/og.png"><meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://neurarh.trade/og.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@neuratraderh">
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#07080b;--line:#1c2029;--ink:#e7e9ee;--dim:#7d8492;--acc:#e8c21a}
@@ -8,6 +8,8 @@
 header{display:flex;align-items:center;gap:18px;padding:14px 22px;border-bottom:1px solid var(--line)}
 .logo{display:flex;align-items:center;gap:8px;font-weight:600;font-size:17px;letter-spacing:-.01em;color:var(--ink);text-decoration:none}.logo i{width:12px;height:12px;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center}.logo i:after{content:"";width:4px;height:4px;border-radius:50%;background:var(--ink)}
 header nav{display:flex;gap:16px;margin-left:auto}header nav a{color:var(--dim);text-decoration:none;font:12px "JetBrains Mono"}header nav a:hover,header nav a.on{color:var(--ink)}
+.borg{margin-top:22px}.borg>b{display:flex;align-items:center;gap:8px;font-size:15px}.borg>b i{width:9px;height:9px;border-radius:50%}
+.ref{padding:12px 0;border-top:1px solid var(--line)}.ref .rt{color:var(--ink);text-decoration:none;font-weight:600;font-size:14px;line-height:1.3}.ref .rt:hover{text-decoration:underline}.ref .rm{font:11px "JetBrains Mono";color:var(--dim);margin-top:4px}.ref p{color:#b9bec9;font-size:12.5px;margin:6px 0 0}.ref .rl{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px}.ref .rl a{font:11px "JetBrains Mono";color:var(--dim);overflow-wrap:anywhere}.ref .rl a:hover{color:var(--ink)}
 main{max-width:1040px;margin:0 auto;padding:44px 22px 80px}
 h1{font-size:40px;font-weight:600;letter-spacing:-.03em;line-height:1.1}h2{font-size:22px;font-weight:600;letter-spacing:-.02em;margin:54px 0 10px}
 .lead{color:#b9bec9;font-size:17px;max-width:720px;margin-top:14px}p{color:#b9bec9;max-width:760px;margin:8px 0}
@@ -22,7 +24,7 @@ pre{background:#0d0f14;border:1px solid var(--line);border-radius:10px;padding:1
 .limits li{color:#b9bec9;margin:8px 0 0 18px;max-width:760px}
 @media(max-width:760px){.src{grid-template-columns:1fr}h1{font-size:30px}table{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}#files td:nth-child(3){min-width:260px}#ledger td:nth-child(3){min-width:240px}main{padding:32px 16px 64px}header{padding:12px 16px}}
 </style></head><body>
-<header><a class="logo" href="/"><img src="brand/logo.png" alt="" width="22" height="22" style="display:block">PETRI</a><nav><a href="/">Map</a><a href="live">Live</a><a href="data" class="on">Data & method</a></nav></header>
+<header><a class="logo" href="/"><img src="brand/logo.png" alt="" width="22" height="22" style="display:block">PETRI</a><nav><a href="/">Map</a><a href="live">Live</a><a href="data" class="on">Data & method</a><a href="https://x.com/neuratraderh" target="_blank" rel="noopener" aria-label="NEURA on X"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.7L23.3 22h-7l-5.5-7.2L4.6 22H1.5l8.1-9.3L1 2h7.1l5 6.6L18.9 2zm-1.2 18h1.7L7.4 3.9H5.6L17.7 20z"/></svg></a></nav></header>
 <main>
 <div class="k">Data & method</div>
 <h1>Every number here can be traced, downloaded and recomputed.</h1>
@@ -36,6 +38,10 @@ pre{background:#0d0f14;border:1px solid var(--line);border-radius:10px;padding:1
  <div><div class="k">Brains</div><h3>The worm's 302 neurons, the fry's 11 cells</h3><p>The worm answers come from running the C.&nbsp;elegans wiring diagram (Cook et al. 2019) as a spiking network for every smell level and memory level, stored as a table the engine replays. The fry circuit is simulated in full at every bar, inside the engine file below.</p><p class="mono"><a href="raw/league/worm-table.json">raw/league/worm-table.json</a></p></div>
 </div>
 <table id="pools"><tr><th>Asset</th><th>Pool on Robinhood Chain</th><th>Token</th></tr></table>
+
+<h2>The science behind each organism</h2>
+<p>Every organism is a model from published research. Each paper was looked up on Crossref (books on OpenLibrary), its authors and year checked and its DOI resolved; the list is rebuilt by <code>node server/sources/verify.mjs</code>. "Background" papers explain the real organism; the rest supply equations or numbers the engine uses, and link to that line of code.</p>
+<div id="biblio"></div>
 
 <h2>Recompute it yourself</h2>
 <p>Open any organism on the <a href="/">map</a> and press <b>Recompute</b>. Your browser loads the engine files and raw data listed below, runs the organism through the four test folds with the setting it chose and the same five seeds, and compares every fold with the published number.</p>
@@ -64,6 +70,8 @@ pre{background:#0d0f14;border:1px solid var(--line);border-radius:10px;padding:1
 <script type="module">
 const M = await (await fetch("raw/manifest.json")).json(), A = await (await fetch("raw/assets.json")).json(), Lg = await (await fetch("raw/lab/ledger.json")).json();
 const site = await fetch("site.json").then((r) => (r.ok ? r.json() : {}), () => ({}));
+{ const { BOOKS, SOURCES, refHTML } = await import("./common.js"), R = await SOURCES;
+  document.getElementById("biblio").innerHTML = Object.keys(BOOKS).filter((k) => BOOKS[k].kind === "org").map((k) => `<div class="borg"><b><i style="background:${BOOKS[k].color}"></i>${BOOKS[k].name}</b>${R.filter((e) => e.org === k).map((e) => refHTML(e, site.repo)).join("")}</div>`).join(""); }
 const kb = (b) => (b > 1e6 ? (b / 1e6).toFixed(1) + " MB" : (b / 1e3).toFixed(0) + " KB"), ex = A.chain.explorer;
 document.getElementById("pools").insertAdjacentHTML("beforeend", A.assets.map((a) => `<tr><td>${a.sym}</td><td><a href="${ex}/address/${a.pool}" target="_blank" rel="noopener">${a.pool}</a></td><td><a href="${ex}/token/${a.token}" target="_blank" rel="noopener">${a.token}</a></td></tr>`).join(""));
 document.getElementById("files").insertAdjacentHTML("beforeend", M.files.map((f, i) => `<tr><td><a href="${f.path}">${f.path}</a></td><td>${kb(f.bytes)}</td><td>${f.sha256}</td><td id="h${i}"></td></tr>`).join(""));

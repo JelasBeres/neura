@@ -4,8 +4,8 @@
 <meta property="og:type" content="website"><meta property="og:site_name" content="NEURA"><meta property="og:url" content="https://neurarh.trade/organism">
 <meta property="og:title" content="NEURA · Specimen"><meta property="og:description" content="Six minds modeled on real organisms trade the same 11 Robinhood Chain assets under pre-registered rules: slime mold, worm, fish fry, ants, bees and E. coli. Real data, honest results.">
 <meta property="og:image" content="https://neurarh.trade/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="NEURA · Specimen"><meta name="twitter:description" content="Six minds modeled on real organisms trade the same 11 Robinhood Chain assets under pre-registered rules: slime mold, worm, fish fry, ants, bees and E. coli. Real data, honest results."><meta name="twitter:image" content="https://neurarh.trade/og.png">
-<link rel="icon" type="image/png" sizes="32x32" href="brand/icon-32.png"><link rel="apple-touch-icon" href="brand/icon-180.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@neuratraderh"><meta name="twitter:title" content="NEURA · Specimen"><meta name="twitter:description" content="Six minds modeled on real organisms trade the same 11 Robinhood Chain assets under pre-registered rules: slime mold, worm, fish fry, ants, bees and E. coli. Real data, honest results."><meta name="twitter:image" content="https://neurarh.trade/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="brand/icon-32.png"><link rel="icon" type="image/png" sizes="64x64" href="brand/icon-64.png"><link rel="apple-touch-icon" href="brand/icon-180.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#07080b;--panel:#0d0f14;--line:#1c2029;--ink:#e7e9ee;--dim:#7d8492;--c:#e8c21a}
@@ -26,6 +26,8 @@ header a{color:var(--dim);text-decoration:none;font:12px "JetBrains Mono"}header
 .brain canvas.main{position:absolute;inset:0;width:100%;height:100%}
 .dish{position:absolute;border-radius:50%;overflow:hidden;background:#0b0c0f;box-shadow:0 0 0 1px var(--line)}.dish canvas{position:absolute;inset:0;width:100%;height:100%}
 .lab{position:absolute;top:14px;font:10px "JetBrains Mono";letter-spacing:.14em;color:var(--dim)}
+.based{padding:22px;border-bottom:1px solid var(--line)}.based .rs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 28px;margin-top:8px}@media(max-width:900px){.based .rs{grid-template-columns:1fr}}
+.ref{padding:12px 0;border-top:1px solid var(--line)}.ref .rt{color:var(--ink);text-decoration:none;font-weight:600;font-size:14px;line-height:1.3}.ref .rt:hover{text-decoration:underline}.ref .rm{font:11px "JetBrains Mono";color:var(--dim);margin-top:4px}.ref p{color:#b9bec9;font-size:12.5px;margin:6px 0 0}.ref .rl{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px}.ref .rl a{font:11px "JetBrains Mono";color:var(--dim);overflow-wrap:anywhere}.ref .rl a:hover{color:var(--ink)}
 .lower{display:grid;grid-template-columns:1.2fr 1fr;border-bottom:1px solid var(--line)}
 .lower>div{padding:22px;border-right:1px solid var(--line)}.lower>div:last-child{border-right:0}
 .k{font:10px "JetBrains Mono";letter-spacing:.14em;color:var(--dim);text-transform:uppercase;margin-bottom:8px}
@@ -47,13 +49,13 @@ footer button{all:unset;cursor:pointer;width:34px;height:34px;border-radius:50%;
 @media(max-width:600px){.lab:not(#mid){display:none}#mid{white-space:normal;width:86%;text-align:center;line-height:1.5}.brain{height:min(78vh,560px)}.exps{overflow-x:auto;max-width:100%;scrollbar-width:none}.exps a{white-space:nowrap}header{gap:10px}.verify table th:nth-child(2),.verify table td:nth-child(2){font-size:11px}}
 @media(max-width:900px){.stats{grid-template-columns:repeat(2,1fr)}.lower,.notes{grid-template-columns:1fr}.lower>div{border-right:0;border-bottom:1px solid var(--line)}header{padding:12px 16px}}
 </style></head><body>
-<header><a href="/" id="back" style="display:flex;align-items:center;gap:8px"><img src="brand/logo.png" alt="NEURA" width="20" height="20" style="display:block">← map</a><a href="live">live</a><a href="data">data & method</a><div class="who"><h1 id="name"></h1><span id="lat"></span></div><span class="chip" id="exp"></span><span class="chip" id="verdict"></span><div class="exps" id="exps"></div><span class="date" id="date"></span></header>
+<header><a href="/" id="back" style="display:flex;align-items:center;gap:8px"><img src="brand/logo.png" alt="NEURA" width="20" height="20" style="display:block">← map</a><a href="live">live</a><a href="data">data & method</a><a href="https://x.com/neuratraderh" target="_blank" rel="noopener" aria-label="NEURA on X"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.7L23.3 22h-7l-5.5-7.2L4.6 22H1.5l8.1-9.3L1 2h7.1l5 6.6L18.9 2zm-1.2 18h1.7L7.4 3.9H5.6L17.7 20z"/></svg></a><div class="who"><h1 id="name"></h1><span id="lat"></span></div><span class="chip" id="exp"></span><span class="chip" id="verdict"></span><div class="exps" id="exps"></div><span class="date" id="date"></span></header>
 <section class="stats" id="stats"></section>
 <section class="brain" id="brain"><canvas class="main" id="cv"></canvas><span class="lab" style="left:22px">INPUTS · FOOD PER ASSET</span><span class="lab" id="mid" style="left:50%;transform:translateX(-50%)"></span><span class="lab" style="right:22px">OUTPUTS · SHARE OF CAPITAL</span></section>
 <section id="body"></section>
 <footer id="foot"><button id="play" aria-label="Play">▶</button><canvas id="tl"></canvas></footer>
 <script type="module">
-import { BOOKS, INNER, EXPS, league, pct, day } from "./common.js";
+import { BOOKS, INNER, EXPS, league, pct, day, SOURCES, refHTML } from "./common.js";
 import { mount } from "../landing/g/specimens.js";
 const q = new URLSearchParams(location.search), k = q.get("k") || "physarum", B = BOOKS[k], EX = await EXPS, expId = EX.find((e) => e.id === q.get("exp")) ? q.get("exp") : EX[0].id;
 const L = await league(expId), O = L.organisms[k], SY = L.syms, N = L.t.length, live = !!O;
@@ -89,8 +91,13 @@ document.getElementById("body").innerHTML = `
   <button id="vbtn">Recompute ${L.id} · ${B.name}</button><div class="bar"><i id="vbar"></i></div><span id="vmsg" style="font:12px JetBrains Mono;color:var(--dim)">${k === "fry" ? "Fry simulates its 11 cells in full: about a minute." : "Takes a few seconds."}</span>
   <p style="margin-top:12px;font-size:13px">Engine files, raw data and their SHA-256 hashes: <a href="data">Data & method →</a></p></div>
   <div id="vout"></div></div>
+ <div class="based" id="based"></div>
  <div class="notes" style="grid-template-columns:repeat(2,1fr)">${reading.map((r) => `<div><p>${r}</p></div>`).join("")}</div>
  ${L.notes?.length ? `<div class="notes" style="grid-template-columns:1fr"><div style="border-color:#3a4150"><div class="k">Disclosed before registration</div><p>${L.notes.join(" ")}</p></div></div>` : ""}`;
+
+// ---------- the papers this organism is built on ----------
+SOURCES.then(async (R) => { const site = await fetch("site.json").then((r) => (r.ok ? r.json() : {}), () => ({})), m = R.filter((e) => e.org === k);
+  if (m.length) document.getElementById("based").innerHTML = `<div class="k">Based on published research · checked on Crossref</div><div class="rs">${m.map((e) => refHTML(e, site.repo)).join("")}</div>`; });
 
 // ---------- verify in the browser ----------
 document.getElementById("vbtn").onclick = () => {

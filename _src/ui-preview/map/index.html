@@ -4,8 +4,8 @@
 <meta property="og:type" content="website"><meta property="og:site_name" content="NEURA"><meta property="og:url" content="https://neurarh.trade/">
 <meta property="og:title" content="NEURA · Six minds, one market"><meta property="og:description" content="Six minds modeled on real organisms trade the same 11 Robinhood Chain assets under pre-registered rules: slime mold, worm, fish fry, ants, bees and E. coli. Real data, honest results.">
 <meta property="og:image" content="https://neurarh.trade/og.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="NEURA · Six minds, one market"><meta name="twitter:description" content="Six minds modeled on real organisms trade the same 11 Robinhood Chain assets under pre-registered rules: slime mold, worm, fish fry, ants, bees and E. coli. Real data, honest results."><meta name="twitter:image" content="https://neurarh.trade/og.png">
-<link rel="icon" type="image/png" sizes="32x32" href="brand/icon-32.png"><link rel="apple-touch-icon" href="brand/icon-180.png">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:site" content="@neuratraderh"><meta name="twitter:title" content="NEURA · Six minds, one market"><meta name="twitter:description" content="Six minds modeled on real organisms trade the same 11 Robinhood Chain assets under pre-registered rules: slime mold, worm, fish fry, ants, bees and E. coli. Real data, honest results."><meta name="twitter:image" content="https://neurarh.trade/og.png">
+<link rel="icon" type="image/png" sizes="32x32" href="brand/icon-32.png"><link rel="icon" type="image/png" sizes="64x64" href="brand/icon-64.png"><link rel="apple-touch-icon" href="brand/icon-180.png">
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#07080b;--panel:#0d0f14;--line:#1c2029;--ink:#e7e9ee;--dim:#7d8492;--acc:#e8c21a}
@@ -86,12 +86,20 @@ footer button{all:unset;cursor:pointer;width:34px;height:34px;border-radius:50%;
 .foot{border-top:1px solid var(--line);margin-top:96px;padding:28px 22px;display:flex;gap:20px;align-items:center;flex-wrap:wrap;max-width:1160px;margin-left:auto;margin-right:auto}.foot a{color:var(--dim);text-decoration:none;font:12px "JetBrains Mono"}.foot a:hover{color:var(--ink)}.foot .logo{margin-right:auto}
 @media(max-width:900px){.steps,.minds,.rules{grid-template-columns:1fr 1fr}.eqs{grid-template-columns:1fr}.proof{grid-template-columns:1fr 1fr}.lstats{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:600px){.sec{padding:64px 16px 16px}.sec h2{font-size:26px}.steps,.minds,.rules,.proof{grid-template-columns:minmax(0,1fr)}.lstats{grid-template-columns:1fr 1fr}.folds{font-size:9px}.foot{padding:24px 16px}}
+.refs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:start}.rorg{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;min-width:0}
+.rorg>.mh{margin-bottom:6px}.ref{padding:12px 0;border-top:1px solid var(--line)}.ref:first-of-type{border-top:0}.ref .rt{color:var(--ink);text-decoration:none;font-weight:600;font-size:14px;line-height:1.3}.ref .rt:hover{text-decoration:underline}
+.ref .rm{font:11px "JetBrains Mono";color:var(--dim);margin-top:4px}.ref p{color:#b9bec9;font-size:12.5px;margin-top:6px}.ref .rl{display:flex;flex-wrap:wrap;gap:4px 12px;margin-top:6px}.ref .rl a{font:11px "JetBrains Mono";color:var(--dim);overflow-wrap:anywhere}.ref .rl a:hover{color:var(--ink)}
+.rbg{margin-top:4px;font-size:12px;color:var(--dim)}.rbg summary{cursor:pointer;font:11px "JetBrains Mono";padding:8px 0}
+.builton{margin-top:14px;font-size:12.5px;color:var(--dim)}.builton a{color:#b9bec9;margin-right:12px}
+@media(max-width:1400px){.refs{grid-template-columns:repeat(2,1fr)}}@media(max-width:600px){.refs{grid-template-columns:minmax(0,1fr)}}
+@media(min-width:1280px){.sec{max-width:1680px;display:grid;grid-template-columns:minmax(300px,400px) minmax(0,1fr);column-gap:clamp(48px,5vw,96px);align-items:start;padding:110px 44px 24px}
+.sec .sh{position:sticky;top:40px}.sec .sbody>:first-child{margin-top:0}.sec h2{font-size:36px}.foot{max-width:1680px;padding-left:44px;padding-right:44px}}
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
 <script defer id="katexjs" src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 </head><body>
 <div class="app">
-<header><div class="logo"><img src="brand/logo.png" alt="" width="22" height="22" style="display:block">PETRI</div><span class="crumb" id="crumb"></span><nav class="navl"><a href="live">Live <i style="color:#7ee2a8;font-style:normal">●</i></a><a href="data">Data & method</a></nav>
+<header><div class="logo"><img src="brand/logo.png" alt="" width="22" height="22" style="display:block">PETRI</div><span class="crumb" id="crumb"></span><nav class="navl"><a href="live">Live <i style="color:#7ee2a8;font-style:normal">●</i></a><a href="data">Data & method</a><a href="https://x.com/neuratraderh" target="_blank" rel="noopener" aria-label="NEURA on X"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.7L23.3 22h-7l-5.5-7.2L4.6 22H1.5l8.1-9.3L1 2h7.1l5 6.6L18.9 2zm-1.2 18h1.7L7.4 3.9H5.6L17.7 20z"/></svg> @neuratraderh</a></nav>
 <div class="exps" id="exps"></div>
 <div class="tabs" id="tabs"><button data-l="hold" class="on">Holdings</button><button data-l="sim">Similarity</button><button data-l="mech">Mechanism</button></div></header>
 <div class="intro"><p><b>Six minds modeled on real organisms trade the same 11 assets on real market data</b>: a slime mold, a worm's 302 neurons, a fish larva, an ant colony, a bee swarm and E.&nbsp;coli. Same rules for all, written down before each run. <span>None has passed all four tests yet, and you don't have to trust us:</span> open any organism and press Recompute. <a class="more" href="#how">How it works ↓</a></p></div>
@@ -100,50 +108,57 @@ footer button{all:unset;cursor:pointer;width:34px;height:34px;border-radius:50%;
 <footer><button id="play" aria-label="Play">▶</button><canvas id="tl"></canvas><div class="date" id="date"></div></footer>
 </div>
 
-<section class="sec" id="how"><div class="k">How it works</div><h2>Real market data in, a portfolio out. In between, a model of a living thing.</h2>
-<p class="lede">No neural network trained on prices. Each organism is a published model from biology, run as math, fed the same numbers every hour.</p>
-<div class="steps"><div class="step"><div class="n">01 · FOOD</div><h3>The market becomes food</h3><p>Every hour each of the 11 assets gets one number: price momentum, mean reversion, on-chain buying on Robinhood Chain, or news tone. That number is what the organism smells.</p></div>
+<section class="sec" id="how"><div class="sh"><div class="k">How it works</div><h2>Real market data in, a portfolio out. In between, a model of a living thing.</h2>
+<p class="lede">No neural network trained on prices. Each organism is a published model from biology, run as math, fed the same numbers every hour.</p></div>
+<div class="sbody"><div class="steps"><div class="step"><div class="n">01 · FOOD</div><h3>The market becomes food</h3><p>Every hour each of the 11 assets gets one number: price momentum, mean reversion, on-chain buying on Robinhood Chain, or news tone. That number is what the organism smells.</p></div>
 <div class="step"><div class="n">02 · BRAIN</div><h3>The organism reacts</h3><p>A slime mold grows tubes, a worm's 302 neurons spike, fish cells fire, ants lay pheromone, bees dance, bacteria tumble. Same food, six very different mechanisms.</p></div>
-<div class="step"><div class="n">03 · PORTFOLIO</div><h3>Its state is a portfolio</h3><p>Where the organism ends up becomes its share of capital in each asset. Every trade pays 0.3%. The result is scored against simply holding all 11 equally.</p></div></div></section>
+<div class="step"><div class="n">03 · PORTFOLIO</div><h3>Its state is a portfolio</h3><p>Where the organism ends up becomes its share of capital in each asset. Every trade pays 0.3%. The result is scored against simply holding all 11 equally.</p></div></div></div></section>
 
-<section class="sec" id="minds-sec"><div class="k">The six minds</div><h2>One slime mold, one worm, one fish, a colony, a swarm and a bacterium.</h2>
-<p class="lede">Each card shows the organism's best experiment so far against holding (dashed). Open one to watch its brain trade, hour by hour.</p>
-<div class="minds" id="minds"></div></section>
+<section class="sec" id="minds-sec"><div class="sh"><div class="k">The six minds</div><h2>One slime mold, one worm, one fish, a colony, a swarm and a bacterium.</h2>
+<p class="lede">Each card shows the organism's best experiment so far against holding (dashed). Open one to watch its brain trade, hour by hour.</p></div>
+<div class="sbody"><div class="minds" id="minds"></div></div></section>
 
-<section class="sec" id="math"><div class="k">The math</div><h2>Every mind is a set of equations. Here they are.</h2>
-<p class="lede">These are the rules the engine runs, with links to the exact source file. The same files run in your browser when you press Recompute.</p>
-<div class="mtabs" id="mathTabs"></div><div class="eqs" id="mathBody"></div>
-<div class="k" style="margin-top:46px">Shared by all six: food, costs, scoring</div><div class="eqs" id="mathCommon"></div></section>
+<section class="sec" id="math"><div class="sh"><div class="k">The math</div><h2>Every mind is a set of equations. Here they are.</h2>
+<p class="lede">These are the rules the engine runs, with links to the exact source file. The same files run in your browser when you press Recompute.</p></div>
+<div class="sbody"><div class="mtabs" id="mathTabs"></div><div class="eqs" id="mathBody"></div><div class="builton" id="builtOn"></div>
+<div class="k" style="margin-top:46px">Shared by all six: food, costs, scoring</div><div class="eqs" id="mathCommon"></div></div></section>
 
-<section class="sec" id="score"><div class="k">Scoreboard</div><h2>Every run, including the ones that lost.</h2>
-<p class="lede">Six organisms, every experiment, return over the test folds after costs. Click a number to open that run.</p>
-<div class="sbw" id="board"></div><p class="note" id="boardNote"></p></section>
+<section class="sec" id="sources"><div class="sh"><div class="k">Sources</div><h2>Built on published science. Check it yourself.</h2>
+<p class="lede">Every organism runs on models from peer-reviewed papers. Each one below was looked up on Crossref and its DOI resolves; "in the code" opens the exact line that uses it.</p></div>
+<div class="sbody"><div class="refs" id="refs"></div></div></section>
 
-<section class="sec" id="rules"><div class="k">The rules</div><h2>Same test for everyone, written down before each run.</h2>
-<div class="folds"><div class="tr">calibrate on the past only</div><div class="te">test 1</div><div class="te">test 2</div><div class="te">test 3</div><div class="te">test 4</div><div class="lk">sealed 3 months</div></div>
+<section class="sec" id="score"><div class="sh"><div class="k">Scoreboard</div><h2>Every run, including the ones that lost.</h2>
+<p class="lede">Six organisms, every experiment, return over the test folds after costs. Click a number to open that run.</p></div>
+<div class="sbody"><div class="sbw" id="board"></div><p class="note" id="boardNote"></p></div></section>
+
+<section class="sec" id="rules"><div class="sh"><div class="k">The rules</div><h2>Same test for everyone, written down before each run.</h2>
+</div>
+<div class="sbody"><div class="folds"><div class="tr">calibrate on the past only</div><div class="te">test 1</div><div class="te">test 2</div><div class="te">test 3</div><div class="te">test 4</div><div class="lk">sealed 3 months</div></div>
 <div class="rules"><div><b>Walk-forward, 4 folds</b><p>Each organism is born fresh at the start of a fold, picks its setting only from data before it, then trades the fold blind.</p></div>
 <div><b>48 settings, 5 seeds</b><p>The same tuning budget for every organism. Each test runs with five random seeds and averages them, so luck washes out.</p></div>
 <div><b>0.3% per trade</b><p>Costs are paid on everything traded. Hold trades once; an organism that churns pays for it.</p></div>
 <div><b>Blind twin</b><p>The same organism with no food runs alongside. If it does as well, the food isn't doing anything.</p></div>
 <div><b>Four gates</b><p>Beat hold on return and Sharpe, no deeper drawdown, and win at least 3 of 4 folds. All four, or it doesn't count.</p></div>
-<div><b>Sealed holdout</b><p>The last three months stay unopened until an experiment passes every gate. It is opened once.</p></div></div></section>
+<div><b>Sealed holdout</b><p>The last three months stay unopened until an experiment passes every gate. It is opened once.</p></div></div></div></section>
 
-<section class="sec" id="live-sec"><div class="k">Live now · LIVE-001</div><h2>Forward test on data that didn't exist yet.</h2>
-<p class="lede">Each organism's last setting, frozen at registration, trading every market hour since. Recomputed from the start every hour, with a hash chain so history can't be rewritten.</p>
-<div id="liveBox"></div><a class="btn" href="live">Open the live test</a></section>
+<section class="sec" id="live-sec"><div class="sh"><div class="k">Live now · LIVE-001</div><h2>Forward test on data that didn't exist yet.</h2>
+<p class="lede">Each organism's last setting, frozen at registration, trading every market hour since. Recomputed from the start every hour, with a hash chain so history can't be rewritten.</p></div>
+<div class="sbody"><div id="liveBox"></div><a class="btn" href="live">Open the live test</a></div></section>
 
-<section class="sec" id="verify"><div class="k">Don't trust, verify</div><h2>Every number on this site can be checked by you.</h2>
-<div class="proof"><div><b>Recompute in your browser</b><p>Open any organism and press Recompute: the engine reruns the test on the raw data in your browser and compares every number.</p></div>
+<section class="sec" id="verify"><div class="sh"><div class="k">Don't trust, verify</div><h2>Every number on this site can be checked by you.</h2>
+</div>
+<div class="sbody"><div class="proof"><div><b>Recompute in your browser</b><p>Open any organism and press Recompute: the engine reruns the test on the raw data in your browser and compares every number.</p></div>
 <div><b>Hashes</b><p>SHA-256 of every engine and data file, checkable in one click on the <a href="data">data page</a>.</p></div>
-<div id="anchorCard"></div><div id="repoCard"><b>Open source</b><p>Engine, data and results are public.</p></div></div></section>
+<div id="anchorCard"></div><div id="repoCard"><b>Open source</b><p>Engine, data and results are public.</p></div></div></div></section>
 
-<section class="sec" id="not"><div class="k">What this is not</div><h2>Honest about the limits.</h2>
-<ul class="not"><li>Not living organisms: mathematical models of how real ones behave, taken from published research.</li>
+<section class="sec" id="not"><div class="sh"><div class="k">What this is not</div><h2>Honest about the limits.</h2>
+</div>
+<div class="sbody"><ul class="not"><li>Not living organisms: mathematical models of how real ones behave, taken from published research.</li>
 <li>No proven edge yet. No experiment has passed all four gates, so the holdout is still sealed.</li>
 <li>Paper trading only. No real money is traded and nothing here is financial advice.</li>
-<li>Past test results, even honest ones, don't promise future returns.</li></ul></section>
+<li>Past test results, even honest ones, don't promise future returns.</li></ul></div></section>
 
-<div class="foot"><div class="logo"><img src="brand/logo.png" alt="" width="20" height="20" style="display:block">PETRI</div><a href="#">Map</a><a href="live">Live</a><a href="data">Data & method</a><a id="fRepo" href="#" target="_blank" rel="noopener">GitHub</a></div>
+<div class="foot"><div class="logo"><img src="brand/logo.png" alt="" width="20" height="20" style="display:block">PETRI</div><a href="#">Map</a><a href="live">Live</a><a href="data">Data & method</a><a id="fRepo" href="#" target="_blank" rel="noopener">GitHub</a><a href="https://x.com/neuratraderh" target="_blank" rel="noopener" aria-label="NEURA on X"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="display:inline-block;vertical-align:-1px" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.7L23.3 22h-7l-5.5-7.2L4.6 22H1.5l8.1-9.3L1 2h7.1l5 6.6L18.9 2zm-1.2 18h1.7L7.4 3.9H5.6L17.7 20z"/></svg> X</a></div>
 <script type="module" src="home.js"></script>
 <script type="module">
 import { BOOKS, MECH, EXPS, league, pct, day, weights, stats, status } from "./common.js";
