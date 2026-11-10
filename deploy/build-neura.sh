@@ -4,10 +4,10 @@
 #   the raw inputs it reads (raw/), and raw/manifest.json with the SHA-256 of every engine and raw file.
 set -e; cd "$(dirname "$0")/.."; S=_src/ui-preview; O=deploy/dist
 rm -rf $O; mkdir -p $O/lib $O/data $O/engine/lab $O/engine/lib $O/engine/league/vendor $O/raw/league $O/raw/lab
-cp $S/map/index.html $S/map/organism.html $S/map/data.html $S/map/live.html $S/map/common.js $S/map/verify-worker.js $O/
+cp $S/map/index.html $S/map/organism.html $S/map/data.html $S/map/live.html $S/map/common.js $S/map/home.js $S/map/verify-worker.js $O/
 mkdir -p $O/brand; cp $S/map/brand/* $O/brand/
 cp $S/landing/g/specimens.js $S/landing/g/worm.json $O/lib/
-cp $S/map/data/league-*.json $O/data/
+node server/league/summary.mjs >/dev/null; cp $S/map/data/league-*.json $O/data/
 cp deploy/site.json $O/site.json   # repo link, on-chain anchor, live test: filled in as each exists
 cp deploy/og.png $O/og.png   # link preview image (1200x630), made by rendering the live map
 # the engine: byte-for-byte the files server/league/run.mjs used (verify.mjs recomputes published results with them)
